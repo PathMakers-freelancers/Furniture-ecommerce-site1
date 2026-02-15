@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication | Modwood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('Assets/hero1.jpg') center/cover no-repeat;
+            position: relative;
+            padding: 150px 20px 80px 20px;
+            /* Space for navbar */
+        }
+
+        .auth-page::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .auth-card {
+            background: var(--bg-alt);
+            /* More solid background for better visibility */
+            padding: 50px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 500px;
+            z-index: 2;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        #register-form {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .auth-card.mode-register #login-form {
+            display: none;
+        }
+
+        .auth-card.mode-register #register-form {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .auth-toggle {
+            display: flex;
+            background: var(--bg-main);
+            padding: 5px;
+            border-radius: 100px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border);
+        }
+
+        .auth-toggle button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: none;
+            color: var(--text-main);
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            opacity: 0.4;
+        }
+
+        .auth-toggle button.active {
+            background: var(--primary);
+            color: white;
+            opacity: 1;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 15px;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            /* High visibility text */
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--bg-alt);
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-couch"></i> Modwood
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn" style="margin-right: 15px;">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"
+                    style="border-top: 1px solid var(--border); margin-top: 20px; padding-top: 20px;">
+                    <div
+                        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+                        <div style="display: flex; gap: 15px;">
+                            <button class="toggle-btn theme-toggle"
+                                style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--bg-main); color: var(--text-main); font-size: 1.2rem;"><i
+                                    class="fas fa-moon"></i></button>
+                            <button class="toggle-btn rtl-toggle"
+                                style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--bg-main); color: var(--text-main); font-size: 1.2rem;"><i
+                                    class="fas fa-globe"></i></button>
+                        </div>
+                        <a href="login.html" class="btn btn-primary"
+                            style="flex: 1; min-width: 120px; text-align: center; padding: 12px 20px;">Login</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn btn-outline active" style="padding: 8px 16px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-page">
+        <div class="auth-card reveal active" id="auth-card">
+            <div class="text-center" style="margin-bottom: 30px;">
+                <div class="auth-toggle">
+                    <button id="toggle-login" class="active">Sign In</button>
+                    <button id="toggle-register">Create Account</button>
+                </div>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="form-container">
+                <div style="margin-bottom: 30px; text-align: center;">
+                    <h2 style="font-size: 2rem; margin-bottom: 10px; color: var(--text-main);">Welcome Back</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">The archive of luxury awaits your return.
+                    </p>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label class="label" style="color: var(--text-main);">Email Address</label>
+                        <div style="position: relative;">
+                            <i class="fas fa-envelope"
+                                style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                            <input type="email" class="input"
+                                style="padding-left: 45px; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-main);"
+                                placeholder="name@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="label" style="color: var(--text-main);">Password</label>
+                            <a href="#" style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Forgot
+                                Password?</a>
+                        </div>
+                        <div style="position: relative;">
+                            <i class="fas fa-lock"
+                                style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                            <input type="password" class="input"
+                                style="padding-left: 45px; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-main);"
+                                placeholder="••••••••">
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="remember">
+                        <label for="remember" style="font-size: 0.9rem; color: var(--text-main);">Keep me signed
+                            in</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 18px; font-size: 1rem; border-radius: 15px; margin-top: 10px;">Enter
+                        the Atelier</button>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="form-container">
+                <div style="margin-bottom: 30px; text-align: center;">
+                    <h2 style="font-size: 2rem; margin-bottom: 10px; color: var(--text-main);">Join the Legacy</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Create your profile to access custom
+                        craftmanship metrics.</p>
+                </div>
+                <form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group">
+                            <label class="label" style="color: var(--text-main);">First Name</label>
+                            <input type="text" class="input"
+                                style="background: var(--bg-main); border: 1px solid var(--border); color: var(--text-main);"
+                                placeholder="Alexander">
+                        </div>
+                        <div class="form-group">
+                            <label class="label" style="color: var(--text-main);">Last Name</label>
+                            <input type="text" class="input"
+                                style="background: var(--bg-main); border: 1px solid var(--border); color: var(--text-main);"
+                                placeholder="Moore">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label" style="color: var(--text-main);">Professional Email</label>
+                        <div style="position: relative;">
+                            <i class="fas fa-envelope"
+                                style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                            <input type="email" class="input"
+                                style="padding-left: 45px; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-main);"
+                                placeholder="alex@atelier.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label" style="color: var(--text-main);">Password</label>
+                        <div style="position: relative;">
+                            <i class="fas fa-lock"
+                                style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                            <input type="password" class="input"
+                                style="padding-left: 45px; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-main);"
+                                placeholder="••••••••">
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                        <input type="checkbox" id="terms">
+                        <label for="terms" style="font-size: 0.8rem; color: var(--text-main);">I agree to the <a
+                                href="#" class="text-primary">Membership Terms</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 18px; font-size: 1rem; border-radius: 15px; margin-top: 10px;">Commence
+                        Registry</button>
+                </form>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <div
+                    style="display: flex; align-items: center; gap: 15px; color: var(--text-muted); font-size: 0.7rem; margin-bottom: 25px;">
+                    <hr style="flex: 1; border: 0; border-top: 1px solid var(--border);">
+                    SECURE HUB ENTRY
+                    <hr style="flex: 1; border: 0; border-top: 1px solid var(--border);">
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <button class="social-btn">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-apple"></i>
+                        <span>Apple</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-couch"></i> Modwood
+                    </a>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Premium furniture crafted with passion. We
+                        bring together modern design and traditional craftsmanship to create timeless pieces for your
+                        home.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" class="toggle-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Office Furniture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Subscribe to get special offers and design
+                        inspiration.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email" class="input" style="flex: 1;">
+                        <button class="btn btn-primary" style="padding: 10px;"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; Received by pathmakers 2026</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <script>
+        const authCard = document.getElementById('auth-card');
+        const loginBtn = document.getElementById('toggle-login');
+        const registerBtn = document.getElementById('toggle-register');
+
+        loginBtn.addEventListener('click', () => {
+            authCard.classList.remove('mode-register');
+            loginBtn.classList.add('active');
+            registerBtn.classList.remove('active');
+        });
+
+        registerBtn.addEventListener('click', () => {
+            authCard.classList.add('mode-register');
+            registerBtn.classList.add('active');
+            loginBtn.classList.remove('active');
+        });
+    </script>
+</body>
+
+</html>

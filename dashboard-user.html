@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Modwood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard-page">
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Original Navbar (Desktop) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-couch"></i> Modwood
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn" style="display: none; margin-right: 15px;">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link active dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Voltfix Header -->
+    <header class="volt-header">
+        <div class="volt-header-top">
+            <a href="index.html" class="volt-logo">
+                <i class="fas fa-couch"></i> <span>Modwood</span>
+            </a>
+            <div class="volt-header-right">
+                <div class="volt-separator"></div>
+                <button class="volt-hamburger"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu Overlay -->
+        <div class="volt-nav-overlay">
+            <div class="volt-overlay-header">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-layer-group"></i> Modwood
+                </a>
+                <div class="volt-overlay-actions">
+                    <button class="volt-close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
+                    <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                    <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+            <nav class="volt-overlay-nav">
+                <ul class="volt-nav-list">
+                    <li>
+                        <a href="#" class="volt-nav-item">Home <i class="fas fa-chevron-down"></i></a>
+                        <ul class="volt-nav-sublist">
+                            <li><a href="index.html" class="volt-nav-subitem">Home 1</a></li>
+                            <li><a href="home2.html" class="volt-nav-subitem">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html" class="volt-nav-item">About</a></li>
+                    <li><a href="services.html" class="volt-nav-item">Services</a></li>
+                    <li><a href="contact.html" class="volt-nav-item">Contact</a></li>
+                    <li>
+                        <a href="#" class="volt-nav-item active">Dashboards <i class="fas fa-chevron-down"></i></a>
+                        <ul class="volt-nav-sublist">
+                            <li><a href="dashboard-user.html" class="volt-nav-subitem"
+                                    style="color: var(--primary); font-weight: 600;">User Panel</a></li>
+                            <li><a href="dashboard-admin.html" class="volt-nav-subitem">Admin Panel</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="sidebar-link active" onclick="showSection('overview', this)">
+                    <i class="fas fa-th-large"></i> Overview
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('analytics', this)">
+                    <i class="fas fa-chart-line"></i> Analytics
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('history', this)">
+                    <i class="fas fa-history"></i> Order History
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('billing', this)">
+                    <i class="fas fa-credit-card"></i> Billing
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('atelier', this)">
+                    <i class="fas fa-palette"></i> Digital Atelier
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('wishlist', this)">
+                    <i class="fas fa-heart"></i> Wishlist
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('support', this)">
+                    <i class="fas fa-headset"></i> Support
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('settings', this)">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+
+            <div class="sidebar-logout">
+                <a href="index.html" class="sidebar-link" style="color: var(--danger);">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+                <div>
+                    <h1 style="font-size: 2rem;"><span id="section-title-prefix">Welcome back,</span> <span
+                            class="text-primary" id="section-title-main">Sarah!</span></h1>
+                    <p id="section-title-desc" style="color: var(--text-muted);">Here's what's happening with your
+                        orders today.</p>
+                </div>
+                <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+                    <img src="Assets/avatar.jpg" alt="Profile"
+                        style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                </div>
+            </header>
+
+            <!-- Section: Overview -->
+            <div id="overview" class="section-content active">
+                <div class="dashboard-grid-3">
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Total Orders</p>
+                        <div class="stat-value counter" data-target="12" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--success); font-size: 0.8rem; margin-top: 5px;"><i
+                                class="fas fa-arrow-up"></i> 2 new this month</p>
+                        <div class="mock-chart-container"
+                            style="height: 80px; padding: 15px; margin-top: 15px; border: none; background: transparent;">
+                            <div class="chart-grid">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+                            <div class="mock-bar-chart" style="height: 100%; gap: 4px;">
+                                <div class="mock-bar" style="height: 40%;" data-value="4"></div>
+                                <div class="mock-bar" style="height: 60%;" data-value="6"></div>
+                                <div class="mock-bar" style="height: 30%;" data-value="3"></div>
+                                <div class="mock-bar" style="height: 80%;" data-value="8"></div>
+                                <div class="mock-bar" style="height: 50%;" data-value="5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Pending Delivery</p>
+                        <div class="stat-value counter" data-target="1" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--info); font-size: 0.8rem; margin-top: 5px;">Arriving Thursday</p>
+                        <div class="mock-chart-container"
+                            style="height: 80px; padding: 15px; margin-top: 15px; border: none; background: transparent;">
+                            <div class="chart-grid">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+                            <svg class="mock-line-chart" viewBox="0 0 100 40" preserveAspectRatio="none"
+                                style="height: 100%;">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:var(--primary);stop-opacity:0.2" />
+                                        <stop offset="100%" style="stop-color:var(--primary);stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,30 Q25,10 50,25 T100,20 L100,40 L0,40 Z" fill="url(#grad1)" />
+                                <path d="M0,30 Q25,10 50,25 T100,20" fill="none" stroke="var(--primary)"
+                                    stroke-width="2" class="mock-line-path" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Reward Points</p>
+                        <div class="stat-value counter" data-target="2450" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--primary); font-size: 0.8rem; margin-top: 5px;">Bronze Member</p>
+                        <div class="mock-chart-container"
+                            style="height: 80px; padding: 15px; margin-top: 15px; border: none; background: transparent;">
+                            <div class="chart-grid">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+                            <div class="mock-bar-chart" style="height: 100%; gap: 4px; justify-content: flex-end;">
+                                <div class="mock-bar" style="height: 20%;" data-value="200"></div>
+                                <div class="mock-bar" style="height: 45%;" data-value="450"></div>
+                                <div class="mock-bar" style="height: 70%;" data-value="700"></div>
+                                <div class="mock-bar" style="height: 90%;" data-value="900"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>Recent Orders</h3>
+                        <a href="#" class="text-primary" style="font-size: 0.9rem;">View All</a>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#LX-5502</td>
+                                <td>Emerald Velvet Sofa</td>
+                                <td>Jan 10, 2026</td>
+                                <td><span
+                                        style="padding: 5px 12px; background: rgba(39, 174, 96, 0.1); color: var(--success); border-radius: 20px; font-size: 0.8rem;">Deliver</span>
+                                </td>
+                                <td>$1,299.00</td>
+                            </tr>
+                            <tr>
+                                <td>#LX-5491</td>
+                                <td>Oak Weaver Chair</td>
+                                <td>Jan 05, 2026</td>
+                                <td><span
+                                        style="padding: 5px 12px; background: rgba(52, 152, 219, 0.1); color: var(--info); border-radius: 20px; font-size: 0.8rem;">Shipped</span>
+                                </td>
+                                <td>$450.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card" style="margin-top: 30px;">
+                    <h3>Order Velocity</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Tracking your order frequency over the
+                        last 6 months.</p>
+                    <div style="height: 300px; position: relative;">
+                        <canvas id="orderVelocityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid-2" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <h3>Interaction Time</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Avg minutes spent per session.</p>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="interactionTimeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Evolution of Style</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Style score over time.</p>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="evolutionLineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Analytics -->
+            <div id="analytics" class="section-content">
+                <div class="stat-card">
+                    <h3>Engagement Analytics</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Your interaction with our latest
+                        collections.</p>
+                    <div class="mock-chart-container">
+                        <div class="chart-y-axis">
+                            <span>1k</span>
+                            <span>500</span>
+                            <span>0</span>
+                        </div>
+                        <div class="chart-grid">
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                        </div>
+                        <div class="mock-bar-chart">
+                            <div class="mock-bar" style="height: 40%;" data-value="420"></div>
+                            <div class="mock-bar" style="height: 65%;" data-value="650"></div>
+                            <div class="mock-bar" style="height: 50%;" data-value="500"></div>
+                            <div class="mock-bar" style="height: 85%;" data-value="850"></div>
+                            <div class="mock-bar" style="height: 30%;" data-value="300"></div>
+                            <div class="mock-bar" style="height: 90%;" data-value="900"></div>
+                            <div class="mock-bar" style="height: 75%;" data-value="750"></div>
+                            <div class="mock-bar" style="height: 60%;" data-value="600"></div>
+                            <div class="mock-bar" style="height: 95%;" data-value="950"></div>
+                        </div>
+                        <div class="chart-x-axis">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid-2" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <h3>Style DNA Analysis</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Your preference profile based on
+                            browsing and purchases.</p>
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="styleRadarChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Interests by Category</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Where you spend the most time
+                            exploring.</p>
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="categoryInterestsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid-3" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <h3>Material Preference</h3>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="materialPrefChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Seasonal Shift</h3>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="seasonalStyleChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Design Consistency</h3>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="designScoreChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: History -->
+            <div id="history" class="section-content">
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <h3>Full Order History</h3>
+                        <div style="margin-top: 20px;">
+                            <div
+                                style="padding: 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+                                <span>#LX-5001 - Modernist Table</span>
+                                <span style="color: var(--text-muted);">Dec 20, 2025</span>
+                            </div>
+                            <div
+                                style="padding: 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+                                <span>#LX-4982 - Leather Lounge</span>
+                                <span style="color: var(--text-muted);">Dec 05, 2025</span>
+                            </div>
+                            <div style="padding: 15px; display: flex; justify-content: space-between;">
+                                <span>#LX-4820 - Glass Desk</span>
+                                <span style="color: var(--text-muted);">Nov 15, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Purchase Growth</h3>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="growthAreaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Billing -->
+            <div id="billing" class="section-content">
+                <div class="stat-card">
+                    <h3>Payment Methods</h3>
+                    <div class="billing-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; margin-top: 20px;">
+                        <div
+                            style="padding: 25px; border: 1.5px solid var(--primary); border-radius: 20px; background: var(--bg-alt); display: flex; flex-direction: column; justify-content: space-between; height: 160px; box-shadow: var(--shadow-sm);">
+                            <i class="fab fa-cc-visa" style="font-size: 2.5rem; color: #1a1f71;"></i>
+                            <div>
+                                <p
+                                    style="font-family: 'Courier New', monospace; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 5px; color: var(--text-main);">
+                                    **** **** **** 4452</p>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">Expires 12/28</p>
+                            </div>
+                        </div>
+                        <div style="padding: 25px; border: 1.5px dashed var(--border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 160px; cursor: pointer; transition: var(--transition); background: transparent;"
+                            onmouseover="this.style.borderColor='var(--primary)'; this.style.background='var(--bg-alt)'"
+                            onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">
+                            <i class="fas fa-plus-circle"
+                                style="font-size: 1.8rem; margin-bottom: 12px; color: var(--primary);"></i>
+                            <span style="font-weight: 600; font-size: 0.95rem; color: var(--text-main);">Add New
+                                Card</span>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid-2" style="margin-top: 30px;">
+                        <div>
+                            <h4>Spending Overview</h4>
+                            <div style="height: 250px; position: relative; margin-top: 20px;">
+                                <canvas id="spendingTrendChart"></canvas>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Transaction Health</h4>
+                            <div style="height: 250px; position: relative; margin-top: 20px;">
+                                <canvas id="transactionHealthChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Digital Atelier -->
+            <div id="atelier" class="section-content">
+                <div class="stat-card">
+                    <h3>Project Scoreboard</h3>
+                    <div class="dashboard-grid-3" style="margin-top: 20px;">
+                        <div>
+                            <p style="font-size: 0.8rem; text-align: center; margin-bottom: 10px;">Completion Status</p>
+                            <div style="height: 150px; position: relative;">
+                                <canvas id="projectStatusChart"></canvas>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8rem; text-align: center; margin-bottom: 10px;">Social Engagement</p>
+                            <div style="height: 150px; position: relative;">
+                                <canvas id="socialEngChart"></canvas>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8rem; text-align: center; margin-bottom: 10px;">Durability Index</p>
+                            <div style="height: 150px; position: relative;">
+                                <canvas id="durabilityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Wishlist -->
+            <div id="wishlist" class="section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div class="stat-card" style="padding: 0; overflow: hidden; border-radius: 30px;">
+                        <div style="height: 200px; background: url('Assets/product3.jpg') center/cover no-repeat;">
+                        </div>
+                        <div style="padding: 30px;">
+                            <span class="text-primary"
+                                style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Saved
+                                Piece</span>
+                            <h3 style="margin: 10px 0;">Japanese Cedar Bath</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Limited edition
+                                artisan collection. Not currently in production.</p>
+                            <button class="btn btn-outline" style="width: 100%;">Notify Me</button>
+                        </div>
+                    </div>
+                    <div class="stat-card"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: 2px dashed var(--border); background: transparent;">
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-plus" style="color: var(--primary);"></i>
+                        </div>
+                        <h3 style="margin-bottom: 10px;">New Ambience</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 200px; margin-bottom: 15px;">
+                            Start a new moodboard
+                            for your next space.</p>
+                        <div class="mock-chart-container" style="width: 80%; padding: 10px; border-style: dashed;">
+                            <div class="mock-bar-chart" style="height: 40px; gap: 3px;">
+                                <div class="mock-bar" style="height: 30%; opacity: 0.3;"></div>
+                                <div class="mock-bar" style="height: 50%; opacity: 0.3;"></div>
+                                <div class="mock-bar" style="height: 40%; opacity: 0.3;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid-2" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <h3>Wishlist Value Distribution</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Breakdown of saved items by price
+                            category.</p>
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="wishlistValueChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Back in Stock</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Items from your favorites that are now
+                            available for purchase.</p>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div class="stock-item">
+                                <img src="Assets/product1_new.png" alt="Sofa">
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1rem;">Emerald Velvet Sofa</h4>
+                                    <p style="color: var(--success); font-size: 0.85rem; font-weight: 600;">2 Units
+                                        Available</p>
+                                </div>
+                                <button class="btn btn-primary" style="padding: 10px 15px; font-size: 0.85rem;">Buy
+                                    Now</button>
+                            </div>
+                            <div class="stock-item">
+                                <img src="Assets/product2_new.png" alt="Chair">
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1rem;">Oak Weaver Chair</h4>
+                                    <p style="color: var(--warning); font-size: 0.85rem; font-weight: 600;">Limited
+                                        Stock</p>
+                                </div>
+                                <button class="btn btn-primary" style="padding: 10px 15px; font-size: 0.85rem;">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Support -->
+            <div id="support" class="section-content">
+                <div class="consult-banner"
+                    style="margin-top: 20px; background: var(--secondary); color: white; padding: 50px; border-radius: 30px; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; right: -50px; bottom: -50px; font-size: 20rem; opacity: 0.05; transform: rotate(-15deg); pointer-events: none;">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div style="position: relative; z-index: 1;">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 15px;">Live Design <span
+                                class="italic text-primary" style="color: var(--primary) !important;">Consult</span>
+                        </h2>
+                        <p style="opacity: 0.8; max-width: 500px; margin-bottom: 30px;">Schedule a 1-on-1 session with
+                            our
+                            lead architects to refine your digital atelier and select the perfect materials for your
+                            home.
+                        </p>
+                        <div style="display: flex; gap: 20px;">
+                            <button class="btn btn-primary"
+                                style="background: white; color: var(--secondary); border: none;">Book Session</button>
+                            <button class="btn btn-outline"
+                                style="border-color: rgba(255,255,255,0.3); color: white;">View
+                                Calendar</button>
+                        </div>
+                    </div>
+                    <div style="position: relative; z-index: 1; text-align: right;">
+                        <div
+                            style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.6; margin-bottom: 10px;">
+                            Next Available</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">Tomorrow, 10:30 AM</div>
+                        <div style="height: 100px; position: relative;">
+                            <canvas id="supportTicketChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Settings -->
+            <div id="settings" class="section-content">
+                <div class="dashboard-grid-2">
+                    <div class="stat-card">
+                        <h3 style="margin-bottom: 25px;"><i class="fas fa-user-circle"></i> Profile Information</h3>
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Full Name</label>
+                                <input type="text" class="input" value="Sarah Jenkins" style="width: 100%;">
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Email
+                                    Address</label>
+                                <input type="email" class="input" value="sarah.j@luxspace.com" style="width: 100%;">
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Phone
+                                    Number</label>
+                                <input type="text" class="input" value="+1 (555) 012-3456" style="width: 100%;">
+                            </div>
+                            <button class="btn btn-primary" style="align-self: flex-start;">Update Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 style="margin-bottom: 25px;"><i class="fas fa-bell"></i> Notifications</h3>
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <p style="font-weight: 600; font-size: 0.95rem;">Email Notifications</p>
+                                    <p style="color: var(--text-muted); font-size: 0.8rem;">Receive updates about your
+                                        orders via email.</p>
+                                </div>
+                                <label class="switch"
+                                    style="position: relative; display: inline-block; width: 40px; height: 20px;">
+                                    <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                                    <span
+                                        style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--primary); transition: .4s; border-radius: 20px;"></span>
+                                </label>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <p style="font-weight: 600; font-size: 0.95rem;">SMS Alerts</p>
+                                    <p style="color: var(--text-muted); font-size: 0.8rem;">Get real-time shipping
+                                        updates on your phone.</p>
+                                </div>
+                                <label class="switch"
+                                    style="position: relative; display: inline-block; width: 40px; height: 20px;">
+                                    <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
+                                    <span
+                                        style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border); transition: .4s; border-radius: 20px;"></span>
+                                </label>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <p style="font-weight: 600; font-size: 0.95rem;">Newsletter</p>
+                                    <p style="color: var(--text-muted); font-size: 0.8rem;">Monthly curation of design
+                                        trends and arrivals.</p>
+                                </div>
+                                <label class="switch"
+                                    style="position: relative; display: inline-block; width: 40px; height: 20px;">
+                                    <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                                    <span
+                                        style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--primary); transition: .4s; border-radius: 20px;"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <h3 style="margin: 30px 0 25px;"><i class="fas fa-shield-alt"></i> Security</h3>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <button class="btn btn-outline"
+                                style="width: 100%; text-align: left; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;">
+                                Change Password <i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i>
+                            </button>
+                            <button class="btn btn-outline"
+                                style="width: 100%; text-align: left; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;">
+                                Two-Factor Authentication <span
+                                    style="font-size: 0.7rem; background: var(--danger); color: white; padding: 2px 8px; border-radius: 10px;">Off</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 20px;">Account Health Overview</h3>
+                    <div class="dashboard-grid-3">
+                        <div style="text-align: center;">
+                            <div class="mock-donut-container" style="display: flex; justify-content: center;">
+                                <div class="mock-donut"
+                                    style="width: 80px; height: 80px; background: conic-gradient(var(--primary) 0% 85%, var(--border) 85% 100%); position: relative; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <div class="mock-donut-info"
+                                        style="font-size: 0.8rem; background: var(--bg-main); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        85%</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.7rem; margin-top: 10px;">Profile Completion</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="mock-donut-container" style="display: flex; justify-content: center;">
+                                <div class="mock-donut"
+                                    style="width: 80px; height: 80px; background: conic-gradient(var(--info) 0% 40%, var(--border) 40% 100%); position: relative; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <div class="mock-donut-info"
+                                        style="font-size: 0.8rem; background: var(--bg-main); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        40%</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.7rem; margin-top: 10px;">Security Score</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="mock-donut-container" style="display: flex; justify-content: center;">
+                                <div class="mock-donut"
+                                    style="width: 80px; height: 80px; background: conic-gradient(var(--warning) 0% 60%, var(--border) 60% 100%); position: relative; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <div class="mock-donut-info"
+                                        style="font-size: 0.8rem; background: var(--bg-main); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        60%</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.7rem; margin-top: 10px;">Preferences Set</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Footer Moved Inside Main Content -->
+            <footer class="footer" style="margin-top: 60px; border-radius: 30px; padding: 60px 40px 30px;">
+                <div class="footer-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 40px; margin-bottom: 40px; gap: 40px;">
+                    <div class="footer-col">
+                        <a href="index.html" class="logo"
+                            style="margin-bottom: 20px; color: white; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-layer-group"></i> Modwood
+                        </a>
+                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.9rem; line-height: 1.8;">
+                            An award-winning architectural interior design firm based in New York, London, and Tokyo.
+                        </p>
+                        <div style="display: flex; gap: 15px;">
+                            <a href="#" class="toggle-btn"
+                                style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: white;"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#" class="toggle-btn"
+                                style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: white;"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="footer-title"
+                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Company</h4>
+                        <ul class="footer-links" style="font-size: 0.85rem; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 15px;"><a href="about.html"
+                                    style="color: var(--text-muted); transition: var(--transition);">About Us</a></li>
+                            <li style="margin-bottom: 15px;"><a href="#"
+                                    style="color: var(--text-muted); transition: var(--transition);">Careers</a></li>
+                            <li style="margin-bottom: 15px;"><a href="contact.html"
+                                    style="color: var(--text-muted); transition: var(--transition);">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="footer-title"
+                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Services</h4>
+                        <ul class="footer-links" style="font-size: 0.85rem; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 15px;"><a href="services.html"
+                                    style="color: var(--text-muted); transition: var(--transition);">Interior Design</a>
+                            </li>
+                            <li style="margin-bottom: 15px;"><a href="#"
+                                    style="color: var(--text-muted); transition: var(--transition);">Architecture</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="footer-title"
+                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Newsletter</h4>
+                        <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.85rem;">Subscribe for
+                            design inspiration.</p>
+                        <div style="display: flex; gap: 8px;">
+                            <input type="email" placeholder="Email" class="input"
+                                style="flex: 1; padding: 8px 12px; font-size: 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: var(--radius-sm); outline: none;">
+                            <button class="btn btn-primary" style="padding: 8px 12px;"><i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom"
+                    style="display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.8rem;">
+                    <p>&copy; Received by pathmakers 2026</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="rtltoggle.js"></script>
+
+    <script>
+        const sectionNames = {
+            'overview': { p: 'Welcome back,', m: 'Sarah!', d: "Here's what's happening with your orders today." },
+            'analytics': { p: 'Data', m: 'Analytics', d: "Deep dive into your style preferences and habits." },
+            'history': { p: 'Order', m: 'History', d: "Your past architectural selections and acquisitions." },
+            'billing': { p: 'Financial', m: 'Overview', d: "Manage your payments and review expenditure." },
+            'atelier': { p: 'Digital', m: 'Atelier', d: "Craft your dream spaces in our virtual 3D studio." },
+            'wishlist': { p: 'Curated', m: 'Wishlist', d: "Pieces you've saved for future consideration." },
+            'support': { p: 'Design', m: 'Concierge', d: "Connect with our architects for professional advice." },
+            'settings': { p: 'Account', m: 'Settings', d: "Manage your profile, security, and preferences." }
+        };
+
+        function showSection(sectionId, link) {
+            // Prevent default anchor behavior
+            if (window.event) window.event.preventDefault();
+
+            // Scroll to target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                const headerOffset = 100;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Update sidebar active state
+            document.querySelectorAll('.sidebar-link').forEach(l => {
+                l.classList.remove('active');
+            });
+            if (link) link.classList.add('active');
+
+            updateTitle(sectionId);
+
+            // Close sidebar on mobile after selection
+            if (window.innerWidth <= 992) {
+                document.querySelector('.sidebar')?.classList.remove('active');
+            }
+        }
+
+        function updateTitle(sectionId) {
+            const titlePrefix = document.getElementById('section-title-prefix');
+            const titleMain = document.getElementById('section-title-main');
+            const titleDesc = document.getElementById('section-title-desc');
+
+            if (sectionNames[sectionId] && titlePrefix && titleMain && titleDesc) {
+                titlePrefix.innerText = sectionNames[sectionId].p;
+                titleMain.innerText = sectionNames[sectionId].m;
+                titleDesc.innerText = sectionNames[sectionId].d;
+            }
+        }
+
+        // ScrollSpy Implementation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section-content');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+            let current = '';
+            const scrollPos = window.scrollY || window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top + scrollPos;
+                // Offset calculation (header height + buffer)
+                if (scrollPos >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            if (current) {
+                navLinks.forEach(link => {
+                    const onclickAttr = link.getAttribute('onclick');
+                    if (onclickAttr && onclickAttr.includes(`'${current}'`)) {
+                        if (!link.classList.contains('active')) {
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                            updateTitle(current);
+                        }
+                    }
+                });
+            }
+        });
+
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        // Chart.js Premium Theme Config
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+        const textMuted = isDark ? '#cbd5e1' : '#64748b'; // Lighter for dark mode
+        const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+        const isMobile = window.innerWidth <= 768;
+
+        Chart.defaults.color = textMuted;
+        Chart.defaults.borderColor = borderColor;
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.font.size = isMobile ? 10 : 12;
+
+        // Initialize all 15 charts
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } }
+        };
+
+        // 1. Order Velocity
+        new Chart(document.getElementById('orderVelocityChart'), {
+            type: 'line',
+            data: {
+                labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+                datasets: [{
+                    label: 'Orders',
+                    data: [1, 2, 1, 3, 2, 4],
+                    borderColor: primaryColor,
+                    backgroundColor: primaryColor + '22',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 2. Interaction Time
+        new Chart(document.getElementById('interactionTimeChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Minutes',
+                    data: [45, 52, 38, 65, 48, 80, 95],
+                    backgroundColor: '#2a9d8f'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 3. Evolution of Style
+        new Chart(document.getElementById('evolutionLineChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Style Score',
+                    data: [65, 70, 75, 82, 88, 94],
+                    borderColor: '#e76f51',
+                    tension: 0.1
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 4. Style DNA Analysis
+        new Chart(document.getElementById('styleRadarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Minimalist', 'Brutalist', 'Mid-Century', 'Art Deco', 'Industrial', 'Scandinavian'],
+                datasets: [{
+                    label: 'Your Profile',
+                    data: [85, 40, 70, 60, 30, 90],
+                    backgroundColor: primaryColor + '33',
+                    borderColor: primaryColor,
+                    pointBackgroundColor: primaryColor
+                }]
+            },
+            options: {
+                ...chartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: borderColor },
+                        grid: { color: borderColor },
+                        pointLabels: {
+                            color: textMuted,
+                            font: { size: isMobile ? 8 : 10 }
+                        },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 5. Interests by Category
+        new Chart(document.getElementById('categoryInterestsChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Living Room', 'Office', 'Bedroom', 'Dining', 'Outdoor'],
+                datasets: [{
+                    data: [45, 25, 15, 10, 5],
+                    backgroundColor: [primaryColor, '#2a9d8f', '#e9c46a', '#e76f51', '#264653'],
+                    borderWidth: 0
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 6. Material Preference
+        new Chart(document.getElementById('materialPrefChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Oak', 'Steel', 'Leather', 'Stone'],
+                datasets: [{
+                    data: [35, 30, 20, 15],
+                    backgroundColor: [primaryColor, '#a1a1a6', '#5d4037', '#757575']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 7. Seasonal Shift
+        new Chart(document.getElementById('seasonalStyleChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Winter', 'Spring', 'Summer', 'Autumn'],
+                datasets: [{
+                    label: 'Engagement',
+                    data: [120, 150, 180, 140],
+                    backgroundColor: '#2a9d8f'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 8. Design Consistency
+        new Chart(document.getElementById('designScoreChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Color', 'Texture', 'Form', 'Space', 'Light'],
+                datasets: [{
+                    label: 'Score',
+                    data: [80, 70, 90, 85, 60],
+                    borderColor: '#e76f51'
+                }]
+            },
+            options: {
+                ...chartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: borderColor },
+                        grid: { color: borderColor },
+                        pointLabels: {
+                            color: textMuted,
+                            font: { size: isMobile ? 8 : 10 }
+                        },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 9. Purchase Growth
+        new Chart(document.getElementById('growthAreaChart'), {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Acquisitions',
+                    data: [5, 12, 18, 25],
+                    fill: true,
+                    backgroundColor: primaryColor + '22',
+                    borderColor: primaryColor
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 10. Spending Trend
+        new Chart(document.getElementById('spendingTrendChart'), {
+            type: 'line',
+            data: {
+                labels: ['Sept', 'Oct', 'Nov', 'Dec', 'Jan'],
+                datasets: [{
+                    label: 'Spending ($)',
+                    data: [450, 1200, 800, 2400, 1299],
+                    borderColor: primaryColor,
+                    backgroundColor: primaryColor + '22',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 11. Transaction Health
+        new Chart(document.getElementById('transactionHealthChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Success', 'Pending', 'Failed'],
+                datasets: [{
+                    data: [95, 4, 1],
+                    backgroundColor: ['#2a9d8f', '#e9c46a', '#e76f51']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 12. Project Status
+        new Chart(document.getElementById('projectStatusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Done', 'Process', 'Draft'],
+                datasets: [{
+                    data: [60, 30, 10],
+                    backgroundColor: [primaryColor, '#2a9d8f', '#e76f51']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 13. Social Engagement
+        new Chart(document.getElementById('socialEngChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Likes', 'Shares', 'Saves'],
+                datasets: [{
+                    label: 'Count',
+                    data: [1200, 450, 890],
+                    backgroundColor: '#264653'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 14. Durability Index
+        new Chart(document.getElementById('durabilityChart'), {
+            type: 'polarArea',
+            data: {
+                labels: ['Wear', 'Stress', 'Fade', 'Impact'],
+                datasets: [{
+                    data: [85, 90, 75, 80],
+                    backgroundColor: [primaryColor + '88', '#2a9d8f88', '#e76f5188', '#26465388']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 15. Support Tickets
+        new Chart(document.getElementById('supportTicketChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Active', 'Closed'],
+                datasets: [{
+                    label: 'Tickets',
+                    data: [2, 14],
+                    backgroundColor: ['#e76f51', '#2a9d8f']
+                }]
+            },
+            options: {
+                ...chartOptions,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#ffffff' }
+                    }
+                },
+                scales: {
+                    x: { ticks: { color: '#ffffff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#ffffff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 16. Wishlist Value Distribution
+        new Chart(document.getElementById('wishlistValueChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Premium', 'Mid-Range', 'Essentials'],
+                datasets: [{
+                    data: [35, 45, 20],
+                    backgroundColor: [primaryColor, '#2a9d8f', '#e9c46a']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // Theme Mutation Observer to update charts
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'data-theme') {
+                    const currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                    const newTextMuted = currentlyDark ? '#a1a1a6' : '#555555';
+                    const newBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+
+                    Chart.helpers.each(Chart.instances, (instance) => {
+                        if (instance.options.scales) {
+                            if (instance.options.scales.x) {
+                                if (!instance.options.scales.x.ticks) instance.options.scales.x.ticks = {};
+                                // Only update if not explicitly set to white (for banner charts)
+                                if (instance.options.scales.x.ticks.color !== '#ffffff') {
+                                    instance.options.scales.x.ticks.color = newTextMuted;
+                                }
+                                if (!instance.options.scales.x.grid) instance.options.scales.x.grid = {};
+                                if (instance.options.scales.x.grid.color !== 'rgba(255,255,255,0.1)') {
+                                    instance.options.scales.x.grid.color = newBorderColor;
+                                }
+                            }
+                            if (instance.options.scales.y) {
+                                if (!instance.options.scales.y.ticks) instance.options.scales.y.ticks = {};
+                                if (instance.options.scales.y.ticks.color !== '#ffffff') {
+                                    instance.options.scales.y.ticks.color = newTextMuted;
+                                }
+                                if (!instance.options.scales.y.grid) instance.options.scales.y.grid = {};
+                                if (instance.options.scales.y.grid.color !== 'rgba(255,255,255,0.1)') {
+                                    instance.options.scales.y.grid.color = newBorderColor;
+                                }
+                            }
+                        }
+                        if (instance.options.plugins?.legend?.labels) {
+                            if (instance.options.plugins.legend.labels.color !== '#ffffff') {
+                                instance.options.plugins.legend.labels.color = newTextMuted;
+                            }
+                        }
+                        if (instance.options.scales?.r?.pointLabels) {
+                            instance.options.scales.r.pointLabels.color = newTextMuted;
+                            if (!instance.options.scales.r.angleLines) instance.options.scales.r.angleLines = {};
+                            instance.options.scales.r.angleLines.color = newBorderColor;
+                            if (!instance.options.scales.r.grid) instance.options.scales.r.grid = {};
+                            instance.options.scales.r.grid.color = newBorderColor;
+                        }
+                        instance.update();
+                    });
+                }
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>

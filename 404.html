@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | Modwood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body style="height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-alt);">
+
+    <div class="text-center container reveal active">
+        <div
+            style="font-size: 10rem; line-height: 1; color: var(--primary); font-weight: 800; opacity: 0.2; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1;">
+            404</div>
+        <i class="fas fa-couch"
+            style="font-size: 5rem; color: var(--primary); margin-bottom: 30px; animation: float 3s ease-in-out infinite;"></i>
+        <h1 style="font-size: 3rem; margin-bottom: 20px;">Oops! Space Not Found</h1>
+        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 40px;">The room you're looking for doesn't
+            exist. It might have been moved or rearranged. Let's get you back to the showroom.</p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="index.html" class="btn btn-primary">Return Home</a>
+            <a href="contact.html" class="btn btn-outline">Report Issue</a>
+        </div>
+    </div>
+
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Modwood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group"></i> Modwood
+            </a>
+
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.7em;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.7em;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+                <li class="hide-desktop">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn hide-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="nav-actions">
+                <button class="nav-toggle rtl-toggle" title="Toggle RTL/LTR">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="nav-separator"></div>
+                <button class="nav-toggle theme-toggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 20px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section" style="padding-top: 150px; background: var(--bg-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Our Expertise</span>
+                <h1 class="section-title" style="font-size: 3.5rem;">Holistic Design <br>Solutions</h1>
+                <p class="section-desc">We offer a comprehensive suite of architectural and interior services, tailored
+                    to the unique demands of each project.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Service List -->
+    <section class="section">
+        <div class="container">
+            <!-- Service 1 -->
+            <div class="curated-grid" style="align-items: center; margin-bottom: 100px;">
+                <div class="reveal">
+                    <img src="Assets/hero2.jpg" alt="Architecture"
+                        style="border-radius: var(--radius); height: 500px; width: 100%; object-fit: cover;">
+                </div>
+                <div class="reveal" style="padding-left: 40px;">
+                    <span class="section-eyebrow">01</span>
+                    <h3 class="section-title text-left" style="font-size: 2.5rem; text-align: left;">Architecture</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                        From initial massing studies to construction administration, our architectural practice focuses
+                        on creating structures that are in dialogue with their environment. We specialize in
+                        contemporary residential and boutique commercial projects.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Feasibility Studies</li>
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Concept Design</li>
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Permit Acquisition</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="curated-grid" style="align-items: center; direction: rtl; margin-bottom: 100px;">
+                <div class="reveal">
+                    <img src="Assets/hero1.jpg" alt="Interiors"
+                        style="border-radius: var(--radius); height: 500px; width: 100%; object-fit: cover;">
+                </div>
+                <div class="reveal" style="padding-right: 40px; text-align: left; direction: ltr;">
+                    <span class="section-eyebrow">02</span>
+                    <h3 class="section-title text-left" style="font-size: 2.5rem; text-align: left;">Interior Design
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                        We curate every surface, fixture, and furnishing. Our interiors are characterized by a sense of
+                        calm, material richness, and spatial harmony. We handle procurement, warehousing, and
+                        installation.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Space Planning</li>
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> FF&E Specification</li>
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Art Curation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="curated-grid" style="align-items: center;">
+                <div class="reveal">
+                    <img src="Assets/product4.jpg" alt="Bespoke"
+                        style="border-radius: var(--radius); height: 500px; width: 100%; object-fit: cover;">
+                </div>
+                <div class="reveal" style="padding-left: 40px;">
+                    <span class="section-eyebrow">03</span>
+                    <h3 class="section-title text-left" style="font-size: 2.5rem; text-align: left;">Furniture Design
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                        When the market doesnt offer the perfect piece, we create it. Our bespoke furniture service
+                        allows for complete customization of dimensions, materials, and finishes to perfectly suit your
+                        project.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Custom Joinery</li>
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Prototyping</li>
+                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                                style="color: var(--accent); margin-right: 10px;"></i> Limited Edition Series</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology & Innovation -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Innovation</span>
+                <h2 class="section-title">Future-Forward Design</h2>
+            </div>
+            <div class="dashboard-grid-3">
+                <div class="stat-item reveal"
+                    style="text-align: left; background: var(--bg-main); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border);">
+                    <i class="fas fa-vr-cardboard"
+                        style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Immersive VR</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Walk through your future home before ground is broken. Our VR integration offers 1:1 scale
+                        experiential previews.
+                    </p>
+                </div>
+                <div class="stat-item reveal"
+                    style="text-align: left; background: var(--bg-main); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border);">
+                    <i class="fas fa-cube" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.25rem; margin-bottom: 10px;">BIM Modeling</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Advanced Building Information Modeling ensures conflict-free construction integration and
+                        precise cost estimation.
+                    </p>
+                </div>
+                <div class="stat-item reveal"
+                    style="text-align: left; background: var(--bg-main); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border);">
+                    <i class="fas fa-wifi" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Smart Ecosystems</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Seamless integration of lighting, climate, and security systems that adapt to your daily
+                        rhythms.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Material Library -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Tactile</span>
+                <h2 class="section-title">The Material Library</h2>
+            </div>
+            <div class="dashboard-split-2-1" style="align-items: center;">
+                <div class="reveal">
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        We maintain an exclusive archive of over 5,000 material samples—from Italian travertines to
+                        Japanese burnt cedar. Our clients are invited to our physical atelier to touch, feel, and
+                        select the palette of their future.
+                    </p>
+                    <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <li style="color: var(--text-main); font-weight: 500;"><i class="fas fa-circle"
+                                style="font-size: 0.5rem; color: var(--accent); margin-right: 10px; vertical-align: middle;"></i>
+                            Rare Earth Stones</li>
+                        <li style="color: var(--text-main); font-weight: 500;"><i class="fas fa-circle"
+                                style="font-size: 0.5rem; color: var(--accent); margin-right: 10px; vertical-align: middle;"></i>
+                            Sustainable Veneers</li>
+                        <li style="color: var(--text-main); font-weight: 500;"><i class="fas fa-circle"
+                                style="font-size: 0.5rem; color: var(--accent); margin-right: 10px; vertical-align: middle;"></i>
+                            Hand-Loomed Textiles</li>
+                        <li style="color: var(--text-main); font-weight: 500;"><i class="fas fa-circle"
+                                style="font-size: 0.5rem; color: var(--accent); margin-right: 10px; vertical-align: middle;"></i>
+                            Patinated Metals</li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                        <img src="Assets/product4.jpg"
+                            style="height: 120px; width: 100%; object-fit: cover; border-radius: var(--radius-sm); filter: brightness(1.1);"
+                            title="Statuario Marble">
+                        <img src="Assets/hero1.jpg"
+                            style="height: 120px; width: 100%; object-fit: cover; border-radius: var(--radius-sm);"
+                            title="American Walnut">
+                        <img src="Assets/about.jpg"
+                            style="height: 120px; width: 100%; object-fit: cover; border-radius: var(--radius-sm); filter: grayscale(1);"
+                            title="Patinated Lead">
+                        <img src="Assets/warranty.jpg"
+                            style="height: 120px; width: 100%; object-fit: cover; border-radius: var(--radius-sm);"
+                            title="Brushed Brass">
+                        <img src="Assets/hero2.jpg"
+                            style="height: 120px; width: 100%; object-fit: cover; border-radius: var(--radius-sm); filter: sepia(0.5);"
+                            title="Travertine Bone">
+                        <img src="Assets/delivery.jpg"
+                            style="height: 120px; width: 100%; object-fit: cover; border-radius: var(--radius-sm); filter: contrast(1.2);"
+                            title="Cast Concrete">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Perspectives</span>
+                <h2 class="section-title">Client Stories</h2>
+            </div>
+            <div class="masonry-grid">
+                <div class="reveal"
+                    style="background: var(--bg-main); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border);">
+                    <div style="color: var(--accent); font-size: 1.5rem; margin-bottom: 20px;"><i
+                            class="fas fa-quote-left"></i></div>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                        "Modwood transformed our penthouse into a sanctuary. The attention to detail, specifically
+                        the
+                        joinery, is unlike anything I've seen in New York."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://ui-avatars.com/api/?name=Elena+R&background=ca8a04&color=fff"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h5 style="font-size: 1rem; margin-bottom: 2px;">Elena R.</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Tribeca, NYC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal"
+                    style="background: var(--bg-main); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border);">
+                    <div style="color: var(--accent); font-size: 1.5rem; margin-bottom: 20px;"><i
+                            class="fas fa-quote-left"></i></div>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                        "Their approach to sustainable luxury is genuine. They sourced reclaimed materials that gave
+                        our
+                        headquarters a soul instantly."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://ui-avatars.com/api/?name=Marcus+T&background=0f172a&color=fff"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h5 style="font-size: 1rem; margin-bottom: 2px;">Marcus T.</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">CEO, Aura Tech</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal"
+                    style="background: var(--bg-main); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border);">
+                    <div style="color: var(--accent); font-size: 1.5rem; margin-bottom: 20px;"><i
+                            class="fas fa-quote-left"></i></div>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                        "Professional, punctual, and profoundly creative. The design process was an absolute joy
+                        from
+                        start to finish."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+James&background=334155&color=fff"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h5 style="font-size: 1rem; margin-bottom: 2px;">Sarah & James</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Kensington, London</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Clients Logo Grid -->
+    <section class="section">
+        <div class="container">
+            <p
+                style="text-align: center; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; font-size: 0.9rem;">
+                Trusted by industry leaders</p>
+            <div class="reveal"
+                style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; opacity: 0.5; filter: grayscale(100%);">
+                <i class="fab fa-apple" style="font-size: 3rem;"></i>
+                <i class="fab fa-google" style="font-size: 3rem;"></i>
+                <i class="fab fa-spotify" style="font-size: 3rem;"></i>
+                <i class="fab fa-airbnb" style="font-size: 3rem;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Tiers -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Investment Structure</h2>
+                <p class="section-desc">Transparent pricing models tailored to project scale.</p>
+            </div>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="journal-card reveal" style="padding: 40px; text-align: left;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Consultation</h4>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">Flat Fee</p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">Ideal for single-room refreshes direction
+                        setting.</p>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Book Assessment</a>
+                </div>
+                <div class="journal-card reveal"
+                    style="padding: 40px; text-align: left; border: 1px solid var(--accent);">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Full Service</h4>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">% of Construction</p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">Comprehensive architectural and interior
+                        design delivery.</p>
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Inquire Now</a>
+                </div>
+                <div class="journal-card reveal" style="padding: 40px; text-align: left;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Retainer</h4>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">Monthly</p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">Ongoing design support for developers and
+                        estates.</p>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Process Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Methodology</span>
+                <h2 class="section-title">The Design Arc</h2>
+            </div>
+            <div class="process-grid">
+                <div class="reveal glass-box"
+                    style="padding: 40px; border-radius: var(--radius); background: var(--bg-alt);">
+                    <div
+                        style="font-size: 4rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        01</div>
+                    <h4 style="margin-bottom: 15px; font-size: 1.25rem;">Discovery</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                        We begin by listening. Understanding your lifestyle, aesthetic preferences, and the functional
+                        requirements of the space is paramount.
+                    </p>
+                </div>
+                <div class="reveal glass-box"
+                    style="padding: 40px; border-radius: var(--radius); background: var(--bg-alt);">
+                    <div
+                        style="font-size: 4rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        02</div>
+                    <h4 style="margin-bottom: 15px; font-size: 1.25rem;">Concept</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                        Developing the narrative. We present mood boards, material palettes, and initial sketches to
+                        establish the visual direction.
+                    </p>
+                </div>
+                <div class="reveal glass-box"
+                    style="padding: 40px; border-radius: var(--radius); background: var(--bg-alt);">
+                    <div
+                        style="font-size: 4rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        03</div>
+                    <h4 style="margin-bottom: 15px; font-size: 1.25rem;">Development</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                        Precision documentation. Detailed CAD drawings, 3D renderings, and technical specifications for
+                        contractors and artisans.
+                    </p>
+                </div>
+                <div class="reveal glass-box"
+                    style="padding: 40px; border-radius: var(--radius); background: var(--bg-alt);">
+                    <div
+                        style="font-size: 4rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        04</div>
+                    <h4 style="margin-bottom: 15px; font-size: 1.25rem;">Execution</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                        Bringing it to life. We advocate for the design during construction, managing site visits and
+                        final installation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="dashboard-split-2-1"
+                style="grid-template-columns: 1fr 2fr; gap: 60px; align-items: flex-start;">
+                <div class="reveal">
+                    <h2 class="section-title">Common Questions</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px;">Everything you need to know before we
+                        start.</p>
+
+                    <!-- New Contact Card to fill the empty space -->
+                    <div
+                        style="background: var(--bg-main); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: -20px; right: -20px; font-size: 8rem; color: var(--accent); opacity: 0.05; transform: rotate(-15deg);">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h4 style="margin-bottom: 15px;">Still have questions?</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">
+                            If you can't find what you're looking for, our concierge team is available to provide
+                            detailed project estimates and timeline consultations.
+                        </p>
+                        <a href="contact.html" class="btn btn-outline"
+                            style="width: 100%; justify-content: center; gap: 10px;">
+                            <i class="fas fa-envelope"></i> Message the Studio
+                        </a>
+                    </div>
+                </div>
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: var(--bg-main); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border);">
+                        <h4 style="margin-bottom: 10px; cursor: pointer;">What is your typical timeline?</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">
+                            Timelines vary by scope. a single room refresh may take 8-12 weeks, while a full home
+                            renovation often spans 6-12 months.
+                        </p>
+                    </div>
+                    <div
+                        style="background: var(--bg-main); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border);">
+                        <h4 style="margin-bottom: 10px; cursor: pointer;">Do you work internationally?</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">
+                            Yes, Modwood accepts commissions globally. We have teams based in New York and London to
+                            facilitate international logistics.
+                        </p>
+                    </div>
+                    <div
+                        style="background: var(--bg-main); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border);">
+                        <h4 style="margin-bottom: 10px; cursor: pointer;">Can you work with my existing contractor?</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">
+                            Absolutely. We value collaboration and are happy to integrate with your preferred build
+                            team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
+                        <i class="fas fa-layer-group"></i> Modwood
+                    </a>
+                    <p style="color: #94a3b8; line-height: 1.8; margin-bottom: 20px;">
+                        An award-winning architectural interior design firm based in New York, London, and Tokyo.
+                    </p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Interior Design</a></li>
+                        <li><a href="#">Architecture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email"
+                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 10px; color: white; width: 100%;">
+                        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Received by pathmakers 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

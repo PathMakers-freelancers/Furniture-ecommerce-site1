@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Modwood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard-page">
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Original Navbar (Desktop) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-couch"></i> Modwood
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn" style="display: none; margin-right: 15px;">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link active dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Voltfix Header -->
+    <header class="volt-header">
+        <div class="volt-header-top">
+            <a href="index.html" class="volt-logo">
+                <i class="fas fa-couch"></i> <span>Modwood</span>
+            </a>
+            <div class="volt-header-right">
+                <div class="volt-separator"></div>
+                <button class="volt-hamburger"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu Overlay -->
+        <div class="volt-nav-overlay">
+            <div class="volt-overlay-header">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-layer-group"></i> Modwood
+                </a>
+                <div class="volt-overlay-actions">
+                    <button class="volt-close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
+                    <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                    <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+            <nav class="volt-overlay-nav">
+                <ul class="volt-nav-list">
+                    <li>
+                        <a href="#" class="volt-nav-item">Home <i class="fas fa-chevron-down"></i></a>
+                        <ul class="volt-nav-sublist">
+                            <li><a href="index.html" class="volt-nav-subitem">Home 1</a></li>
+                            <li><a href="home2.html" class="volt-nav-subitem">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html" class="volt-nav-item">About</a></li>
+                    <li><a href="services.html" class="volt-nav-item">Services</a></li>
+                    <li><a href="contact.html" class="volt-nav-item">Contact</a></li>
+                    <li>
+                        <a href="#" class="volt-nav-item active">Dashboards <i class="fas fa-chevron-down"></i></a>
+                        <ul class="volt-nav-sublist">
+                            <li><a href="dashboard-user.html" class="volt-nav-subitem">User Panel</a></li>
+                            <li><a href="dashboard-admin.html" class="volt-nav-subitem"
+                                    style="color: var(--primary); font-weight: 600;">Admin Panel</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="sidebar-link active" onclick="showSection('overview', this)">
+                    <i class="fas fa-th-large"></i> Overview
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('users', this)">
+                    <i class="fas fa-users"></i> Users
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('security', this)">
+                    <i class="fas fa-shield-alt"></i> Security
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('logs', this)">
+                    <i class="fas fa-file-medical-alt"></i> System Logs
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('liveops', this)">
+                    <i class="fas fa-globe-americas"></i> Live Ops
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('logistics', this)">
+                    <i class="fas fa-truck"></i> Logistics
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('intelligence', this)">
+                    <i class="fas fa-brain"></i> Intelligence
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('settings', this)">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+
+            <div class="sidebar-logout">
+                <a href="index.html" class="sidebar-link" style="color: var(--danger);">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+                <div>
+                    <h1 style="font-size: 2rem;"><span id="section-title-prefix">System</span> <span
+                            class="text-primary" id="section-title-main">Overview</span></h1>
+                    <p id="section-title-desc" style="color: var(--text-muted);">Comprehensive system monitoring and
+                        real-time analytics.</p>
+                </div>
+                <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+                    <img src="Assets/avatar.jpg" alt="Profile"
+                        style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                </div>
+            </header>
+
+            <!-- Section: Overview -->
+            <div id="overview" class="section-content active">
+                <div class="dashboard-grid-4">
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Monthly Revenue</p>
+                        <div class="stat-value counter" data-target="124500" data-prefix="$" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">$0</div>
+                        <p style="color: var(--success); font-size: 0.8rem;">+15.2% vs last month</p>
+                        <div class="mock-chart-container"
+                            style="height: 80px; padding: 15px; border: none; background: transparent; margin-top: 15px;">
+                            <div class="chart-grid">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+                            <div class="mock-bar-chart" style="height: 100%; gap: 3px;">
+                                <div class="mock-bar" style="height: 30%;"></div>
+                                <div class="mock-bar" style="height: 50%;"></div>
+                                <div class="mock-bar" style="height: 80%;"></div>
+                                <div class="mock-bar" style="height: 60%;"></div>
+                                <div class="mock-bar" style="height: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Active Orders</p>
+                        <div class="stat-value counter" data-target="84" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--info); font-size: 0.8rem;">12 pending shipment</p>
+                        <div class="mock-chart-container"
+                            style="height: 80px; padding: 15px; border: none; background: transparent; margin-top: 15px;">
+                            <div class="chart-grid">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+                            <svg class="mock-line-chart" viewBox="0 0 100 40" preserveAspectRatio="none"
+                                style="height: 100%;">
+                                <path d="M0,35 Q25,15 50,30 T100,20" fill="none" stroke="var(--info)" stroke-width="2"
+                                    class="mock-line-path" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">New Customers</p>
+                        <div class="stat-value counter" data-target="156" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--success); font-size: 0.8rem;">80% conversion rate</p>
+                        <div class="mock-chart-container"
+                            style="height: 80px; padding: 15px; border: none; background: transparent; margin-top: 15px;">
+                            <div class="mock-donut-container" style="justify-content: flex-start; gap: 10px;">
+                                <div class="mock-donut" style="width: 30px; height: 30px;"></div>
+                                <span style="font-size: 0.7rem; color: var(--text-muted);">Trending Up</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Inventory Alert</p>
+                        <div class="stat-value counter" data-target="3" data-suffix="+"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--danger); font-size: 0.8rem;">Items low in stock</p>
+                        <div
+                            style="height: 80px; padding: 15px; margin-top: 15px; display: flex; align-items: center; justify-content: center;">
+                            <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Monitor stock
+                                levels</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <h3>Revenue Growth</h3>
+                        <div style="height: 300px; position: relative; margin-top: 20px;">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Top Selling</h3>
+                        <div style="margin-top: 25px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border);">
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <img src="Assets/product1_new.png"
+                                        style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">
+                                    <span>Emerald Sofa</span>
+                                </div>
+                                <span style="font-weight: 700;">$42k</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border);">
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <img src="Assets/product2_new.png"
+                                        style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">
+                                    <span>Oak Weaver</span>
+                                </div>
+                                <span style="font-weight: 700;">$28k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-grid-2" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <h3>Global Sales Distribution</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Revenue breakdown by region.</p>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="regionPieChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Acquisition Channels</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Where new users come from.</p>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="acquisitionChannelChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid-2" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <h3>Server Analytics</h3>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="responseTimeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Traffic Volume</h3>
+                        <div style="height: 200px; position: relative;">
+                            <canvas id="trafficVolumeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Users -->
+            <div id="users" class="section-content">
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>User Management</h3>
+                            <a href="#" class="text-primary" style="font-size: 0.9rem;">View All</a>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Customer</td>
+                                    <td><span style="color: var(--success);">Active</span></td>
+                                    <td><i class="fas fa-edit"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>Admin</td>
+                                    <td><span style="color: var(--success);">Active</span></td>
+                                    <td><i class="fas fa-edit"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Registration Growth</h3>
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="userGrowthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Security -->
+            <div id="security" class="section-content">
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <h3>Security Risk Analysis</h3>
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="threatRadarChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Threat Types</h3>
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="threatTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Logs -->
+            <div id="logs" class="section-content">
+                <div class="stat-card" style="font-family: monospace; background: #1a1a1a; color: #00ff00;">
+                    <h3>System Logs</h3>
+                    <div style="margin-top: 20px; font-size: 0.85rem;">
+                        <p>[2026-01-20 07:05:12] SUCCESS: Database backup completed.</p>
+                        <p>[2026-01-20 07:08:44] INFO: New user registration #UX-992.</p>
+                        <p>[2026-01-20 07:12:01] WARNING: High traffic detected from Region 4.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Live Ops -->
+            <div id="liveops" class="section-content">
+                <!-- Global Ops Map -->
+                <div class="stat-card"
+                    style="margin-bottom: 40px; padding: 0; overflow: hidden; height: 600px; position: relative; background: #111;">
+                    <div style="position: absolute; top: 20px; left: 20px; z-index: 2;">
+                        <h3 style="color: white; margin-bottom: 5px;">Live Operations Tracker</h3>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <div
+                                style="width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;">
+                            </div>
+                            <span style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">System Operational</span>
+                        </div>
+                    </div>
+
+                    <div style="position: absolute; bottom: 20px; right: 20px; z-index: 2; width: 250px;">
+                        <div class="mock-chart-container"
+                            style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                            <h4 style="color: white; font-size: 0.8rem; margin-bottom: 10px;">Regional Latency</h4>
+                            <div style="height: 100px; position: relative;">
+                                <canvas id="regionalLatencyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 100%; height: 100%; opacity: 0.3; background: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') center/cover; filter: invert(1);">
+                    </div>
+
+                    <!-- Animated Pings -->
+                    <div class="ping" style="top: 30%; left: 20%;"></div>
+                    <div class="ping" style="top: 40%; left: 70%; animation-delay: 0.5s;"></div>
+                    <div class="ping" style="top: 60%; left: 60%; animation-delay: 1.2s;"></div>
+                    <div class="ping" style="top: 25%; left: 80%; animation-delay: 2s;"></div>
+
+                    <style>
+                        .ping {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background: var(--primary);
+                            border-radius: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+
+                        .ping::after {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid var(--primary);
+                            border-radius: 50%;
+                            animation: radar 2s infinite ease-out;
+                        }
+
+                        @keyframes radar {
+                            0% {
+                                width: 0;
+                                height: 0;
+                                opacity: 1;
+                            }
+
+                            100% {
+                                width: 100px;
+                                height: 100px;
+                                opacity: 0;
+                            }
+                        }
+                    </style>
+                </div>
+            </div>
+
+            <!-- Section: Logistics -->
+            <div id="logistics" class="section-content">
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <h3>Supply Chain Health</h3>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="logisticsSuccessChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Warehouse Turnover</h3>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="inventoryTurnoverChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card" style="margin-top: 30px;">
+                    <h3>Stock Monitor</h3>
+                    <div style="height: 300px; position: relative;">
+                        <canvas id="stockBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Intelligence -->
+            <div id="intelligence" class="section-content">
+                <div
+                    style="padding: 40px; background: var(--bg-alt); border-radius: 30px; border: 1px solid var(--border);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <h2 style="font-size: 1.8rem;">System <span class="italic text-primary">Intelligence</span>
+                        </h2>
+                        <span
+                            style="background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">AI
+                            OPTIMIZED</span>
+                    </div>
+
+                    <div class="dashboard-grid-3" style="margin-top: 20px;">
+                        <div class="stat-card">
+                            <h3>Demand Forecast</h3>
+                            <div style="height: 200px; position: relative;">
+                                <canvas id="demandForecastChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Sales Velocity</h3>
+                            <div style="height: 200px; position: relative;">
+                                <canvas id="salesPerformanceChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>System Health</h3>
+                            <div style="height: 200px; position: relative;">
+                                <canvas id="websiteScoreChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Settings -->
+            <div id="settings" class="section-content">
+                <div class="stat-card">
+                    <h3 style="margin-bottom: 20px;">Admin Settings</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">System configuration and user
+                        management.
+                    </p>
+
+                    <div class="dashboard-grid-4">
+                        <div class="mock-chart-container" style="text-align: center; padding: 15px;">
+                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px;">CPU
+                                Load</div>
+                            <div class="mock-bar-chart" style="height: 40px; gap: 2px;">
+                                <div class="mock-bar" style="height: 20%;"></div>
+                                <div class="mock-bar" style="height: 40%;"></div>
+                                <div class="mock-bar" style="height: 30%;"></div>
+                            </div>
+                        </div>
+                        <div class="mock-chart-container" style="text-align: center; padding: 15px;">
+                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px;">Memory
+                            </div>
+                            <div class="mock-bar-chart" style="height: 40px; gap: 2px;">
+                                <div class="mock-bar" style="height: 60%;"></div>
+                                <div class="mock-bar" style="height: 50%;"></div>
+                                <div class="mock-bar" style="height: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="mock-chart-container" style="text-align: center; padding: 15px;">
+                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px;">
+                                Network</div>
+                            <div class="mock-bar-chart" style="height: 40px; gap: 2px;">
+                                <div class="mock-bar" style="height: 10%;"></div>
+                                <div class="mock-bar" style="height: 90%;"></div>
+                                <div class="mock-bar" style="height: 20%;"></div>
+                            </div>
+                        </div>
+                        <div class="mock-chart-container" style="text-align: center; padding: 15px;">
+                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px;">
+                                Database</div>
+                            <div class="mock-bar-chart" style="height: 40px; gap: 2px;">
+                                <div class="mock-bar" style="height: 40%;"></div>
+                                <div class="mock-bar" style="height: 45%;"></div>
+                                <div class="mock-bar" style="height: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 30px; padding: 20px; border: 1px dashed var(--border); border-radius: 10px;">
+                        <p class="text-center">Settings panel is under construction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Moved Inside Main Content -->
+            <footer class="footer" style="margin-top: 60px; border-radius: 30px; padding: 60px 40px 30px;">
+                <div class="footer-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 40px; margin-bottom: 40px; gap: 40px;">
+                    <div class="footer-col">
+                        <a href="index.html" class="logo"
+                            style="margin-bottom: 20px; color: white; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-layer-group"></i> Modwood
+                        </a>
+                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.9rem; line-height: 1.8;">
+                            An award-winning architectural interior design firm based in New York, London, and Tokyo.
+                        </p>
+                        <div style="display: flex; gap: 15px;">
+                            <a href="#" class="toggle-btn"
+                                style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: white;"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#" class="toggle-btn"
+                                style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: white;"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="footer-title"
+                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Company</h4>
+                        <ul class="footer-links" style="font-size: 0.85rem; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 15px;"><a href="about.html"
+                                    style="color: var(--text-muted); transition: var(--transition);">About Us</a></li>
+                            <li style="margin-bottom: 15px;"><a href="#"
+                                    style="color: var(--text-muted); transition: var(--transition);">Careers</a></li>
+                            <li style="margin-bottom: 15px;"><a href="contact.html"
+                                    style="color: var(--text-muted); transition: var(--transition);">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="footer-title"
+                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Services</h4>
+                        <ul class="footer-links" style="font-size: 0.85rem; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 15px;"><a href="services.html"
+                                    style="color: var(--text-muted); transition: var(--transition);">Interior Design</a>
+                            </li>
+                            <li style="margin-bottom: 15px;"><a href="#"
+                                    style="color: var(--text-muted); transition: var(--transition);">Architecture</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="footer-title"
+                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Newsletter</h4>
+                        <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.85rem;">Subscribe for
+                            design inspiration.</p>
+                        <div style="display: flex; gap: 8px;">
+                            <input type="email" placeholder="Email" class="input"
+                                style="flex: 1; padding: 8px 12px; font-size: 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: var(--radius-sm); outline: none;">
+                            <button class="btn btn-primary" style="padding: 8px 12px;"><i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom"
+                    style="display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.8rem;">
+                    <p>&copy; Received by pathmakers 2026</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="rtltoggle.js"></script>
+    <script>
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+        const textMuted = isDark ? '#cbd5e1' : '#64748b'; // Lighter for dark mode
+        const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+        const isMobile = window.innerWidth <= 768;
+
+        Chart.defaults.color = textMuted;
+        Chart.defaults.borderColor = borderColor;
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.font.size = isMobile ? 10 : 12;
+
+        // Initialize all 15 Admin Charts
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } }
+        };
+
+        // 1. Revenue Dynamics
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [12000, 19000, 15000, 25000, 22000, 30000],
+                    borderColor: primaryColor,
+                    backgroundColor: primaryColor + '22',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 2. Global Sales Distribution
+        new Chart(document.getElementById('regionPieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['North America', 'Europe', 'Asia', 'Others'],
+                datasets: [{
+                    data: [40, 30, 20, 10],
+                    backgroundColor: [primaryColor, '#2a9d8f', '#e9c46a', '#e76f51']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 3. Acquisition Channels
+        new Chart(document.getElementById('acquisitionChannelChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Organic', 'Paid', 'Social', 'Referral'],
+                datasets: [{
+                    data: [45, 25, 20, 10],
+                    backgroundColor: ['#2a9d8f', '#e76f51', '#264653', '#e9c46a']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 4. Server Analytics
+        new Chart(document.getElementById('responseTimeChart'), {
+            type: 'line',
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00'],
+                datasets: [{
+                    label: 'Response (ms)',
+                    data: [45, 42, 48, 40, 44],
+                    borderColor: '#2a9d8f'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 5. Traffic Volume
+        new Chart(document.getElementById('trafficVolumeChart'), {
+            type: 'line',
+            data: {
+                labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
+                datasets: [{
+                    label: 'Users',
+                    data: [200, 150, 600, 1200, 950, 800],
+                    backgroundColor: primaryColor + '22',
+                    borderColor: primaryColor,
+                    fill: true
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 6. User Growth
+        new Chart(document.getElementById('userGrowthChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Users',
+                    data: [120, 250, 380, 520, 680, 890],
+                    borderColor: '#2a9d8f'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 7. Security Risk
+        new Chart(document.getElementById('threatRadarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['DDoS', 'Brute Force', 'SQLi', 'XSS', 'Phishing'],
+                datasets: [{
+                    label: 'Risk',
+                    data: [20, 10, 5, 15, 25],
+                    borderColor: '#e76f51',
+                    backgroundColor: '#e76f5133'
+                }]
+            },
+            options: {
+                ...chartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: borderColor },
+                        grid: { color: borderColor },
+                        pointLabels: {
+                            color: textMuted,
+                            font: { size: isMobile ? 8 : 10 }
+                        },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 8. Threat Types
+        new Chart(document.getElementById('threatTypeChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Critical', 'Major', 'Minor'],
+                datasets: [{
+                    data: [5, 15, 80],
+                    backgroundColor: ['#e76f51', '#e9c46a', '#2a9d8f']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 9. Regional Latency
+        new Chart(document.getElementById('regionalLatencyChart'), {
+            type: 'bar',
+            data: {
+                labels: ['NY', 'LDN', 'TKY', 'PAR'],
+                datasets: [{
+                    label: 'Latency',
+                    data: [40, 70, 30, 90],
+                    backgroundColor: '#00ff88'
+                }]
+            },
+            options: {
+                ...chartOptions,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#ffffff' }
+                    }
+                },
+                scales: {
+                    x: { ticks: { color: '#ffffff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#ffffff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 10. Logistics Success
+        new Chart(document.getElementById('logisticsSuccessChart'), {
+            type: 'line',
+            data: {
+                labels: ['W1', 'W2', 'W3', 'W4'],
+                datasets: [{
+                    label: 'Success %',
+                    data: [92, 95, 88, 97],
+                    borderColor: '#2a9d8f'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 11. Inventory Turnover
+        new Chart(document.getElementById('inventoryTurnoverChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Stock', 'Reserved', 'Shipping'],
+                datasets: [{
+                    data: [70, 20, 10],
+                    backgroundColor: [primaryColor, '#e9c46a', '#2a9d8f']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 12. Stock Alerts
+        new Chart(document.getElementById('stockBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Sofa', 'Chair', 'Table', 'Bed', 'Lamp'],
+                datasets: [{
+                    label: 'Units',
+                    data: [5, 12, 3, 15, 8],
+                    backgroundColor: [primaryColor, primaryColor, '#e76f51', primaryColor, primaryColor]
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 13. Demand Forecast
+        new Chart(document.getElementById('demandForecastChart'), {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Projected',
+                    data: [100, 150, 130, 200],
+                    borderColor: primaryColor,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 14. Sales Performance
+        new Chart(document.getElementById('salesPerformanceChart'), {
+            type: 'bar',
+            data: {
+                labels: ['L', 'O', 'B', 'D'],
+                datasets: [{
+                    label: 'Growth',
+                    data: [45, 30, 15, 60],
+                    backgroundColor: '#2a9d8f'
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 15. Website Score
+        new Chart(document.getElementById('websiteScoreChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Speed', 'SEO', 'Security', 'UX', 'Mobile'],
+                datasets: [{
+                    label: 'Score',
+                    data: [90, 85, 95, 80, 88],
+                    borderColor: primaryColor
+                }]
+            },
+            options: {
+                ...chartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: borderColor },
+                        grid: { color: borderColor },
+                        pointLabels: {
+                            color: textMuted,
+                            font: { size: isMobile ? 8 : 10 }
+                        },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        const sectionNames = {
+            'overview': { p: 'System', m: 'Overview', d: 'Comprehensive system monitoring and real-time analytics.' },
+            'users': { p: 'User', m: 'Management', d: 'Manage system users, roles, and platform permissions.' },
+            'security': { p: 'Security', m: 'Analytics', d: 'Threat detection, protocol status, and risk analysis.' },
+            'logs': { p: 'System', m: 'Logs', d: 'Detailed audit trails and system event history.' },
+            'liveops': { p: 'Live', m: 'Operations', d: 'Real-time global service monitoring and response.' },
+            'logistics': { p: 'Global', m: 'Logistics', d: 'Supply chain tracking and inventory management.' },
+            'intelligence': { p: 'Predictive', m: 'Intelligence', d: 'AI-driven forecasting and resource optimization.' },
+            'settings': { p: 'Admin', m: 'Settings', d: 'Configure core system parameters and security policies.' }
+        };
+
+        function showSection(sectionId, link) {
+            // Prevent default anchor behavior
+            if (window.event) window.event.preventDefault();
+
+            // Scroll to target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                const headerOffset = 100;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Update sidebar active state
+            document.querySelectorAll('.sidebar-link').forEach(l => {
+                l.classList.remove('active');
+            });
+            if (link) link.classList.add('active');
+
+            updateTitle(sectionId);
+
+            // Close sidebar on mobile after selection
+            if (window.innerWidth <= 992) {
+                document.querySelector('.sidebar')?.classList.remove('active');
+            }
+        }
+
+        function updateTitle(sectionId) {
+            const titlePrefix = document.getElementById('section-title-prefix');
+            const titleMain = document.getElementById('section-title-main');
+            const titleDesc = document.getElementById('section-title-desc');
+
+            if (sectionNames[sectionId] && titlePrefix && titleMain && titleDesc) {
+                titlePrefix.innerText = sectionNames[sectionId].p;
+                titleMain.innerText = sectionNames[sectionId].m;
+                titleDesc.innerText = sectionNames[sectionId].d;
+            }
+        }
+
+        // ScrollSpy Implementation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section-content');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+            let current = '';
+            const scrollPos = window.scrollY || window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top + scrollPos;
+                // Offset calculation (header height + buffer)
+                if (scrollPos >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            if (current) {
+                navLinks.forEach(link => {
+                    const onclickAttr = link.getAttribute('onclick');
+                    if (onclickAttr && onclickAttr.includes(`'${current}'`)) {
+                        if (!link.classList.contains('active')) {
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                            updateTitle(current);
+                        }
+                    }
+                });
+            }
+        });
+
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        // Theme Mutation Observer to update charts
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'data-theme') {
+                    const currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                    const newTextMuted = currentlyDark ? '#a1a1a6' : '#555555';
+                    const newBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+
+                    Chart.helpers.each(Chart.instances, (instance) => {
+                        if (instance.options.scales) {
+                            if (instance.options.scales.x) {
+                                if (!instance.options.scales.x.ticks) instance.options.scales.x.ticks = {};
+                                if (instance.options.scales.x.ticks.color !== '#ffffff') {
+                                    instance.options.scales.x.ticks.color = newTextMuted;
+                                }
+                                if (!instance.options.scales.x.grid) instance.options.scales.x.grid = {};
+                                if (instance.options.scales.x.grid.color !== 'rgba(255,255,255,0.1)') {
+                                    instance.options.scales.x.grid.color = newBorderColor;
+                                }
+                            }
+                            if (instance.options.scales.y) {
+                                if (!instance.options.scales.y.ticks) instance.options.scales.y.ticks = {};
+                                if (instance.options.scales.y.ticks.color !== '#ffffff') {
+                                    instance.options.scales.y.ticks.color = newTextMuted;
+                                }
+                                if (!instance.options.scales.y.grid) instance.options.scales.y.grid = {};
+                                if (instance.options.scales.y.grid.color !== 'rgba(255,255,255,0.1)') {
+                                    instance.options.scales.y.grid.color = newBorderColor;
+                                }
+                            }
+                        }
+                        if (instance.options.plugins?.legend?.labels) {
+                            if (instance.options.plugins.legend.labels.color !== '#ffffff') {
+                                instance.options.plugins.legend.labels.color = newTextMuted;
+                            }
+                        }
+                        if (instance.options.scales?.r?.pointLabels) {
+                            instance.options.scales.r.pointLabels.color = newTextMuted;
+                            if (!instance.options.scales.r.angleLines) instance.options.scales.r.angleLines = {};
+                            instance.options.scales.r.angleLines.color = newBorderColor;
+                            if (!instance.options.scales.r.grid) instance.options.scales.r.grid = {};
+                            instance.options.scales.r.grid.color = newBorderColor;
+                        }
+                        instance.update();
+                    });
+                }
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>

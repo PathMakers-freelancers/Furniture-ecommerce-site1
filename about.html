@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Studio | Modwood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group"></i> Modwood
+            </a>
+
+
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.7em;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.7em;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+                <li class="hide-desktop">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn hide-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="nav-actions">
+                <button class="nav-toggle rtl-toggle" title="Toggle RTL/LTR">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="nav-separator"></div>
+                <button class="nav-toggle theme-toggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 20px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section" style="padding-top: 150px; background: var(--bg-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">The Studio</span>
+                <h1 class="section-title" style="font-size: 3.5rem;">Process, Precision, <br>and Passion</h1>
+                <p class="section-desc">We are a collective of architects, designers, and artisans dedicated to the
+                    pursuit of spatial perfection.</p>
+            </div>
+
+            <div class="reveal"
+                style="margin-top: 60px; height: 500px; overflow: hidden; border-radius: var(--radius);">
+                <img src="Assets/delivery.jpg" alt="Our Studio"
+                    style="width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8);">
+            </div>
+        </div>
+    </header>
+
+    <!-- Design Philosophy (New) -->
+    <section class="section">
+        <div class="container">
+            <div class="dashboard-split-2-1" style="align-items: center;">
+                <div class="reveal">
+                    <h2 class="section-title">The Art of Living</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        Architecture is not merely about shelter; it is about framing life. Our philosophy creates
+                        spaces that resonate with the human spirit, balancing the raw and the refined.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                        We draw inspiration from the wabi-sabi aesthetic—finding beauty in imperfection and
+                        impermanence—and merge it with the precision of modern engineering.
+                    </p>
+                </div>
+                <div class="reveal">
+                    <img src="Assets/product1_new.png"
+                        style="border-radius: var(--radius); width: 100%; height: 400px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History / Heritage -->
+    <section class="section">
+        <div class="container">
+            <div class="curated-grid" style="align-items: center;">
+                <div class="reveal">
+                    <span class="section-eyebrow">Our Heritage</span>
+                    <h2 class="section-title">Founded on Principles</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">
+                        Established in 1999 by Alexandra Moore, Modwood began as a bespoke joinery workshop in
+                        Copenhagen. Over the last two decades, we have evolved into a global architectural interior
+                        practice, yet our roots in craftsmanship remain the bedrock of our identity.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                        We do not believe in trends. We believe in context, materiality, and the human experience. Every
+                        project is an opportunity to create something that outlasts us.
+                    </p>
+                </div>
+                <!-- Timeline Grid -->
+                <div class="reveal"
+                    style="display: grid; grid-template-columns: 1fr; gap: 30px; padding-left: 40px; border-left: 1px solid var(--border);">
+                    <div>
+                        <span style="font-weight: 700; color: var(--text-main); font-size: 1.2rem;">1999</span>
+                        <p style="color: var(--text-muted);">Founded in Copenhagen as a joinery atelier.</p>
+                    </div>
+                    <div>
+                        <span style="font-weight: 700; color: var(--text-main); font-size: 1.2rem;">2010</span>
+                        <p style="color: var(--text-muted);">Expanded to New York; First international architectural
+                            award.</p>
+                    </div>
+                    <div>
+                        <span style="font-weight: 700; color: var(--text-main); font-size: 1.2rem;">2018</span>
+                        <p style="color: var(--text-muted);">Launched 'Modwood Collections', our furniture line.</p>
+                    </div>
+                    <div>
+                        <span style="font-weight: 700; color: var(--text-main); font-size: 1.2rem;">2026</span>
+                        <p style="color: var(--text-muted);">Opening of Tokyo office and 'Sustainable Future'
+                            initiative.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Leadership</span>
+                <h2 class="section-title">The Visionaries</h2>
+            </div>
+
+            <div class="curated-grid">
+                <div class="collection-card reveal" style="height: 450px;">
+                    <img src="Assets/leader-alexandra.png" alt="Alexandra Moore" class="collection-img"
+                        style="filter: grayscale(100%);">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title" style="font-size: 1.5rem;">Alexandra Moore</h3>
+                        <p style="color: rgba(255,255,255,0.8);">Founder & Principal Architect</p>
+                    </div>
+                </div>
+                <div class="collection-card reveal" style="height: 450px;">
+                    <img src="Assets/leader-julian.png" alt="Julian Thorne" class="collection-img"
+                        style="filter: grayscale(100%);">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title" style="font-size: 1.5rem;">Julian Thorne</h3>
+                        <p style="color: rgba(255,255,255,0.8);">Design Director</p>
+                    </div>
+                </div>
+                <div class="collection-card reveal" style="height: 450px;">
+                    <img src="Assets/avatar.jpg" alt="Sarah Jenkins" class="collection-img"
+                        style="filter: grayscale(100%);">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title" style="font-size: 1.5rem;">Sarah Jenkins</h3>
+                        <p style="color: rgba(255,255,255,0.8);">Head of Interiors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture / Careers Section (New) -->
+    <section class="section">
+        <div class="container">
+            <div class="dashboard-split-2-1" style="align-items: center; direction: rtl;">
+                <div class="reveal" style="direction: ltr; text-align: left;">
+                    <span class="section-eyebrow">Culture</span>
+                    <h2 class="section-title">Life at Modwood</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">
+                        We are a team of curious minds. We foster an environment where experimentation is encouraged and
+                        failure is seen as a necessary step towards innovation.
+                    </p>
+                    <div style="display: flex; gap: 20px; margin-top: 30px;">
+                        <div>
+                            <h4 style="font-size: 2rem; color: var(--accent);">14+</h4>
+                            <p style="font-size: 0.9rem;">Nationalities</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 2rem; color: var(--accent);">50%</h4>
+                            <p style="font-size: 0.9rem;">Female Leadership</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 2rem; color: var(--accent);">4+</h4>
+                            <p style="font-size: 0.9rem;">Global Studios</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline" style="margin-top: 40px;">Join the Team</a>
+                </div>
+                <div class="reveal" style="padding: 20px; direction: ltr;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <img src="Assets/warranty.jpg"
+                            style="border-radius: var(--radius); height: 200px; width: 100%; object-fit: cover; margin-top: 40px;">
+                        <img src="Assets/hero2.jpg"
+                            style="border-radius: var(--radius); height: 200px; width: 100%; object-fit: cover;">
+                        <img src="Assets/delivery.jpg"
+                            style="border-radius: var(--radius); height: 200px; width: 100%; object-fit: cover;">
+                        <img src="Assets/hero1.jpg"
+                            style="border-radius: var(--radius); height: 200px; width: 100%; object-fit: cover; margin-top: -40px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="section" style="background: var(--primary); color: white;">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title" style="color: white;">Our Core Values</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item reveal"
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    <img src="Assets/product4.jpg"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-gem" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Integrity</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">We are transparent in our process and
+                            honest in our materials.</p>
+                    </div>
+                </div>
+                <div class="stat-item reveal"
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    <img src="Assets/product2.jpg"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-leaf" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Sustainability</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Design should not come at the cost of
+                            the planet.</p>
+                    </div>
+                </div>
+                <div class="stat-item reveal"
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    <img src="Assets/product1.jpg"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-infinity"
+                            style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Longevity</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">We build for the next generation, not
+                            just the next season.</p>
+                    </div>
+                </div>
+                <div class="stat-item reveal"
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    <img src="Assets/delivery.jpg"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-users" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Collaboration</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Great spaces are born from great
+                            partnerships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section (New) -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Recognition</span>
+                <h2 class="section-title">Award Winning Design</h2>
+            </div>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 50px; opacity: 0.6;">
+                <div class="reveal" style="text-align: center;">
+                    <i class="fas fa-trophy" style="font-size: 3rem; color: var(--text-main); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.2rem;">Dezeen Awards</h4>
+                    <p style="font-size: 0.9rem;">Interior of the Year 2024</p>
+                </div>
+                <div class="reveal" style="text-align: center;">
+                    <i class="fas fa-medal" style="font-size: 3rem; color: var(--text-main); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.2rem;">ArchDaily</h4>
+                    <p style="font-size: 0.9rem;">Building of the Year 2023</p>
+                </div>
+                <div class="reveal" style="text-align: center;">
+                    <i class="fas fa-award" style="font-size: 3rem; color: var(--text-main); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.2rem;">A+ Awards</h4>
+                    <p style="font-size: 0.9rem;">Sustainability Prize 2025</p>
+                </div>
+                <div class="reveal" style="text-align: center;">
+                    <i class="fas fa-star" style="font-size: 3rem; color: var(--text-main); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 1.2rem;">Design Week</h4>
+                    <p style="font-size: 0.9rem;">Best Studio 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philanthropy (New) -->
+    <section class="section">
+        <div class="container">
+            <div class="dashboard-split-2-1" style="align-items: center; direction: rtl;">
+                <div class="reveal" style="direction: ltr; text-align: left;">
+                    <span class="section-eyebrow">Giving Back</span>
+                    <h2 class="section-title">Design for Good</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">
+                        We believe that great design should be accessible. Through our 'Modwood Foundation', we dedicate
+                        2% of our annual profits to restoring public spaces in underserved communities.
+                    </p>
+                    <div style="display: flex; gap: 40px; margin-top: 30px;">
+                        <div>
+                            <h4 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 5px;">12</h4>
+                            <p style="font-size: 0.9rem;">Parks Restored</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 5px;">$2M+</h4>
+                            <p style="font-size: 0.9rem;">Donated to Arts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal" style="direction: ltr;">
+                    <img src="Assets/hero2.jpg"
+                        style="border-radius: var(--radius); width: 100%; height: 400px; object-fit: cover; filter: grayscale(100%);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Pledge (New) -->
+    <section class="section">
+        <div class="container">
+            <div class="dashboard-split-2-1" style="align-items: center;">
+                <div class="reveal">
+                    <span class="section-eyebrow" style="color: var(--success);">Our Promise</span>
+                    <h2 class="section-title">Commitment to the Future</h2>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                        We believe that luxury and sustainability are not mutually exclusive. In fact, true luxury lies
+                        in the conscious preservation of our resources.
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i> 100% FSC Certified Timber
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i> Carbon Neutral Operations
+                            by
+                            2030
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i> Local Sourcing Priority
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <div
+                        style="background: var(--bg-alt); padding: 40px; border-radius: var(--radius); text-align: center;">
+                        <h3 style="font-size: 4rem; color: var(--success); font-weight: 700;">2030</h3>
+                        <p style="font-weight: 600;">Net Zero Trace</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+                            We are tracking every kilogram of carbon to ensure we meet our goals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
+                        <i class="fas fa-layer-group"></i> Modwood
+                    </a>
+                    <p style="color: #94a3b8; line-height: 1.8; margin-bottom: 20px;">
+                        An award-winning architectural interior design firm based in New York, London, and Tokyo.
+                    </p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Interior Design</a></li>
+                        <li><a href="#">Architecture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email"
+                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 10px; color: white; width: 100%;">
+                        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Received by pathmakers 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

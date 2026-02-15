@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modwood | Minimalist Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Theme adaptation for Home 2: Nordic Precision */
+        :root {
+            --primary: #c5a059;
+            /* Syncing with global luxury gold */
+            --primary-dark: #a68446;
+            --accent: #ffca3a;
+        }
+
+        /* Hero 2 background should respect theme */
+        .hero-2 {
+            min-height: 90vh;
+            background: var(--bg-main);
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            /* Space for navbar */
+            border-bottom: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Navbar (Same as Home 1 for navigation) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-couch"></i> Modwood
+            </a>
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link active dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+                <li class="hide-desktop">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn hide-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="nav-actions">
+                <button class="nav-toggle rtl-toggle" title="Toggle RTL/LTR">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="nav-separator"></div>
+                <button class="nav-toggle theme-toggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 20px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Home 2 -->
+    <header class="hero-2">
+        <div class="container hero-container-responsive">
+            <div class="hero-content">
+                <span class="product-cat reveal" style="display: block; margin-bottom: 20px;">Limited Edition</span>
+                <h1 class="hero-title reveal" style="font-size: clamp(3rem, 10vw, 5rem);">The Zen <br>Bedroom</h1>
+                <p class="hero-desc reveal">Simple lines, natural materials, and a sense of tranquility. Transform your
+                    private sanctuary.</p>
+                <div class="reveal">
+                    <button class="btn btn-primary">Discover Series</button>
+                </div>
+            </div>
+            <div class="hero-image-wrap reveal">
+                <img src="Assets/hero2_new.png" alt="Zen Bedroom" class="hero-image-responsive">
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Mid Section - Featured Product Split -->
+    <section class="section">
+        <div class="container">
+            <div class="feature-split-grid">
+                <div class="reveal">
+                    <img src="Assets/product3.jpg" alt="Marble Table"
+                        style="width: 100%; border-radius: var(--radius); filter: grayscale(100%); transition: 0.5s;"
+                        onmouseover="this.style.filter='grayscale(0%)'"
+                        onmouseout="this.style.filter='grayscale(100%)'">
+                </div>
+                <div class="reveal">
+                    <h2 class="section-title">Statuario Marble <br>Dining Series</h2>
+                    <p class="section-subtitle" style="margin: 20px 0;">Handpiked marble from the Carrara region,
+                        sculpted into a masterpiece of modern dining. Each table is unique, just like your home.</p>
+                    <ul style="margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"></i> Italian
+                            Carrara Marble</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"></i> Sustainable
+                            Production</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"></i> Lifetime
+                            Warranty</li>
+                    </ul>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+                <!-- Technical Detail Card (Fills space on right) -->
+                <div class="reveal"
+                    style="background: var(--bg-alt); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center;">
+                    <span
+                        style="font-size: 0.8rem; letter-spacing: 3px; color: var(--primary); font-weight: 700; margin-bottom: 20px; display: block;">TECHNICAL
+                        BLUEPRINT</span>
+                    <div style="margin-bottom: 25px;">
+                        <div
+                            style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <span style="opacity: 0.6; font-size: 0.9rem;">Base Material</span>
+                            <span style="font-weight: 600;">Reinforced Carbon Steel</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <span style="opacity: 0.6; font-size: 0.9rem;">Surface Origin</span>
+                            <span style="font-weight: 600;">Carrara, Tuscany</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0;">
+                            <span style="opacity: 0.6; font-size: 0.9rem;">Hand Finish</span>
+                            <span style="font-weight: 600;">Silk-Touch Honed</span>
+                        </div>
+                    </div>
+                    <div
+                        style="padding: 20px; background: rgba(197, 160, 89, 0.1); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-main);">
+                        <i class="fas fa-award" style="color: var(--primary); margin-right: 10px;"></i>
+                        Winner: 2025 Architecture & Design Award for Material Innovation.
+                    </div>
+                </div>
+                <!-- Heritage Extraction (Fills the 4th slot/empty space) -->
+                <div class="reveal"
+                    style="position: relative; border-radius: var(--radius); overflow: hidden; min-height: 400px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column;">
+                    <img src="Assets/hero1.jpg"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); z-index: 1;">
+                    <div
+                        style="position: relative; z-index: 2; margin-top: auto; background: linear-gradient(transparent, rgba(15,23,42,0.95)); padding: 40px 30px; color: white;">
+                        <span
+                            style="font-size: 0.7rem; letter-spacing: 3px; color: var(--accent); margin-bottom: 5px; display: block;">HERITAGE</span>
+                        <h4 style="color: white; margin-bottom: 15px;">The Marble Master</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.85; line-height: 1.6;">Our extraction process in Carrara
+                            preserves the stone’s integrity, ensuring the unique crystalline structure remains untouched
+                            for a lifetime of luster.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Mastery of Form (New Process Section) -->
+    <section class="section" style="background: var(--bg-alt); padding: 120px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <span class="text-primary"
+                    style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;">Our
+                    Philosophy</span>
+                <h2 class="section-title reveal">The Mastery <span class="text-primary italic">of Form</span></h2>
+            </div>
+
+            <div class="process-grid">
+                <div class="reveal glass-box" style="padding: 50px; border-radius: 30px; text-align: left;">
+                    <div
+                        style="font-size: 3rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        01</div>
+                    <h4 style="margin-bottom: 15px;">Nordic Precision</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">Every line serves a
+                        purpose. We adhere to the strict principles of Scandinavian reductionism—where beauty is found
+                        in the essential.</p>
+                </div>
+                <div class="reveal glass-box"
+                    style="padding: 50px; border-radius: 30px; text-align: left; background: var(--secondary); color: white;">
+                    <div
+                        style="font-size: 3rem; color: var(--primary); opacity: 0.4; font-weight: 800; margin-bottom: 20px;">
+                        02</div>
+                    <h4 style="margin-bottom: 15px; color: white;">Ethical Subtlety</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8;">We source only from
+                        managed forests. The luxury of our timber lies in its honesty—untouched grains protected by
+                        natural oils.</p>
+                </div>
+                <div class="reveal glass-box" style="padding: 50px; border-radius: 30px; text-align: left;">
+                    <div
+                        style="font-size: 3rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        03</div>
+                    <h4 style="margin-bottom: 15px;">Haptic Soul</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">Our final finish is always
+                        hand-applied. We believe you should feel the artist's touch in every smooth surface and rounded
+                        edge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Banner -->
+    <!-- Signature Drop Link -->
+    <section class="container reveal">
+        <div class="collection-banner">
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--bg-main) 10px, var(--bg-main) 20px);">
+            </div>
+            <div style="position: relative; z-index: 2; text-align: center;">
+                <span
+                    style="font-family: 'Outfit'; letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px; display: block;">Limited
+                    Access</span>
+                <h2 style="font-size: 4rem; line-height: 1; margin-bottom: 30px; font-family: 'Outfit';">Japandi
+                    <br><span style="font-weight: 300; font-style: italic;">Edition 04</span>
+                </h2>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-number">02</span>
+                        <span class="countdown-label">DAYS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number">14</span>
+                        <span class="countdown-label">HOURS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number">36</span>
+                        <span class="countdown-label">MINS</span>
+                    </div>
+                </div>
+                <button class="btn btn-premium">Join Waitlist</button>
+            </div>
+            <!-- Decorative Subtle Clock -->
+            <i class="fas fa-clock"
+                style="position: absolute; right: -20px; bottom: -20px; font-size: 15rem; opacity: 0.03; transform: rotate(-15deg);"></i>
+        </div>
+    </section>
+
+    <!-- Grid of items -->
+    <!-- Editorial Masonry Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="masonry-grid">
+
+                <!-- Item 1 (Large Vertical) -->
+                <div class="reveal masonry-item-tall" style="position: relative;">
+                    <div style="height: 100%; border-radius: var(--radius); overflow: hidden;">
+                        <img src="Assets/product1_new.png"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <div style="position: absolute; bottom: 30px; left: 30px;">
+                        <h3
+                            style="background: var(--bg-main); color: var(--text-main); padding: 10px 20px; border-radius: 50px; display: inline-block;">
+                            Lounge 01</h3>
+                    </div>
+                </div>
+
+                <div class="masonry-item-tall reveal"
+                    style="position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; border-radius: var(--radius);">
+                    <img src="Assets/about.jpg" alt="Dining"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <div
+                        style="position: relative; z-index: 2; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 30px; width: 100%;">
+                        <span style="font-size: 0.7rem; color: var(--accent); letter-spacing: 2px;">DINING</span>
+                        <h3 style="color: white; font-size: 1.5rem; margin-top: 5px;">The Social Nexus</h3>
+                    </div>
+                </div>
+                <div class="masonry-item-wide reveal"
+                    style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; border-radius: var(--radius); min-height: 350px;">
+                    <img src="Assets/product2.jpg" alt="Living"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); z-index: 1;">
+                    <div style="position: relative; z-index: 2; text-align: center; padding: 40px;">
+                        <div
+                            style="font-family: 'Playfair Display'; font-size: 4rem; color: white; opacity: 0.3; line-height: 1;">
+                            "</div>
+                        <p
+                            style="color: white; font-size: 1.25rem; font-style: italic; line-height: 1.6; margin-bottom: 20px;">
+                            Architecture is the learned game, correct and magnificent, of forms assembled in light.
+                        </p>
+                        <span style="color: var(--accent); font-weight: 600; letter-spacing: 1px;">— LE CORBUSIER</span>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Medium with background) -->
+                <div class="reveal masonry-item-box"
+                    style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Assets/product2_new.png') center/cover; border-radius: var(--radius); padding: 30px; color: white; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div
+                        style="position: relative; z-index: 2; display: flex; width: 100%; align-items: center; justify-content: space-between;">
+                        <h3 style="color: white; margin: 0;">View Full <br>Catalogue</h3>
+                        <div
+                            style="width: 50px; height: 50px; border: 1px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 (Bespoke Adaptation - Fills grid gap) -->
+                <div class="reveal masonry-item-box"
+                    style="background: var(--bg-dark); color: white; border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center;">
+                    <i class="fas fa-tools" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4 style="color: white; margin-bottom: 10px;">Bespoke <br>Adaptation</h4>
+                    <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.6;">Our master artisans can adapt the
+                        dimensions of any signature piece to perfectly harmonize with your unique architectural
+                        floorplan.</p>
+                    <a href="contact.html"
+                        style="color: var(--accent); font-weight: 600; margin-top: 20px; font-size: 0.9rem;">Commission
+                        Now &rarr;</a>
+                </div>
+
+                <!-- Item 6 (Map/Global Concierge - Fills space) -->
+                <div class="reveal masonry-item-box"
+                    style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    <i class="fas fa-satellite"
+                        style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="margin-bottom: 10px;">Global <br>Concierge</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">White-glove delivery and in-home assembly
+                        across 45 countries, handled by our certified masters.</p>
+                </div>
+
+                <!-- Item 7 (The Signature Quote - Spans remaining width) -->
+                <div class="reveal masonry-item-wide"
+                    style="background: #fdfcf9; border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; display: flex; align-items: center; gap: 40px;">
+                    <div
+                        style="font-size: 5rem; color: var(--primary); opacity: 0.05; font-family: 'Playfair Display';">
+                        &ldquo;</div>
+                    <p
+                        style="font-size: 1.3rem; font-style: italic; color: var(--primary); margin: 0; line-height: 1.6; font-weight: 300;">
+                        "Architecture is the learned game, correct and magnificent, of forms assembled in light." — Le
+                        Corbusier</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Narratives (New Testimonials Section) -->
+    <section class="section" style="background: var(--bg-main); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="narratives-grid">
+                <div class="reveal">
+                    <h2 class="section-title">Client <br><span class="text-primary italic">Narratives</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px;">Stories of transformation from homes that
+                        found their soul with Modwood Pieces.</p>
+                    <div style="display: flex; gap: 20px;">
+                        <div style="width: 60px; height: 1px; background: var(--primary); margin-top: 15px;"></div>
+                        <p style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Est. 1998</p>
+                    </div>
+                </div>
+                <div class="reveal" style="display: grid; grid-template-columns: 1fr; gap: 30px;">
+                    <div class="glass-box" style="padding: 40px; border-radius: 20px;">
+                        <p style="font-size: 1.1rem; font-style: italic; margin-bottom: 25px; line-height: 1.6;">"The
+                            'Zen Bedroom' series didn't just change my room; it changed my mornings. The morning light
+                            hitting the oak surfaces is truly poetic."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="https://ui-avatars.com/api/?name=Sofia+H&background=ca8a04&color=fff"
+                                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                            <div>
+                                <h5 style="margin: 0;">Sofia Henderson</h5>
+                                <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">Architect, Stockholm
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach Metrics (New Stats Banner) -->
+    <section class="reveal" style="margin: 100px 0;">
+        <div class="container">
+            <div class="stats-grid reveal">
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">140+</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">Cities
+                        Worldwide</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">98%+</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">
+                        Seamless Delivery</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">12k+</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">Custom
+                        Installs</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">24/7+</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">Expert
+                        Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Commitment (New) -->
+    <section class="section" style="background: var(--primary); color: white;">
+        <div class="container">
+            <div class="curated-grid" style="align-items: center;">
+                <div class="reveal">
+                    <h2 class="section-title" style="color: white;">Crafted for <br><span class="italic"
+                            style="color: var(--accent);">Sustainability</span></h2>
+                    <p style="color: rgba(255,255,255,0.7); margin: 30px 0; line-height: 1.8;">
+                        Our commitment to the planet is as deep as our commitment to design. We use 100% recycled
+                        packaging,
+                        sustainably sourced timber, and carbon-neutral shipping for every piece in the Modwood
+                        collection.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div>
+                            <i class="fas fa-leaf"
+                                style="color: var(--accent); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                            <h5 style="color: white; margin-bottom: 10px;">Eco-Friendly Materials</h5>
+                            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Sustainably harvested oak and
+                                walnut from managed forests.</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-recycle"
+                                style="color: var(--accent); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                            <h5 style="color: white; margin-bottom: 10px;">Zero Waste Policy</h5>
+                            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Wood scraps from our workshop
+                                are repurposed into unique decorative objects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div style="position: relative; border-radius: 40px; overflow: hidden; height: 500px;">
+                        <img src="Assets/hero1.jpg" alt="Sustainability"
+                            style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                        <div
+                            style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(15,23,42,0.8)); display: flex; align-items: flex-end; padding: 40px;">
+                            <p style="font-size: 1.2rem; font-style: italic; color: white;">"Design should not only
+                                serve the person, but the planet that provides the materials."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Newsletter (New) -->
+    <section class="section" style="padding: 100px 0;">
+        <div class="container">
+            <div
+                style="background: var(--bg-alt); padding: 80px 40px; border-radius: 40px; text-align: center; border: 1px solid var(--border);">
+                <div class="reveal">
+                    <span class="text-primary"
+                        style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;">Stay
+                        Connected</span>
+                    <h2 style="font-size: 3rem; margin: 25px 0;">Join the <span class="italic">Inner Circle</span></h2>
+                    <p style="max-width: 600px; margin: 0 auto 40px; color: var(--text-muted);">
+                        Receive early access to seasonal drops, private studio tours, and curated design inspiration
+                        from our principal architects.
+                    </p>
+                    <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 15px;">
+                        <input type="email" placeholder="Email Address"
+                            style="flex: 1; padding: 18px 25px; border-radius: 50px; border: 1px solid var(--border); outline: none; font-family: inherit;">
+                        <button class="btn btn-primary" style="border-radius: 50px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-couch"></i> Modwood
+                    </a>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Premium furniture crafted with passion. We
+                        bring together modern design and traditional craftsmanship to create timeless pieces for your
+                        home.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" class="toggle-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Office Furniture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Subscribe to get special offers and design
+                        inspiration.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email" class="input" style="flex: 1;">
+                        <button class="btn btn-primary" style="padding: 10px;"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; Received by pathmakers 2026</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>
