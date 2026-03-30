@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard | Modwood</title>
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,102 +20,66 @@
         <div class="blob"></div>
     </div>
     <div class="bg-grid"></div>
-
-    <!-- Original Navbar (Desktop) -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-couch"></i> Modwood
+ 
+    <!-- Top Header for Mobile Dashboard -->
+    <header class="volt-header">
+        <div class="volt-header-top">
+            <button class="volt-hamburger"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="logo" style="font-size: 1.25rem;">
+                <i class="fas fa-layer-group"></i> Modwood
             </a>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <img src="Assets/avatar.jpg" alt="P" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+            </div>
+        </div>
+    </header>
 
-            <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="toggle-btn" style="display: none; margin-right: 15px;">
-                <i class="fas fa-bars"></i>
-            </button>
-
-
-            <ul class="nav-links">
-                <li style="position: relative;">
-                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
-                            style="font-size: 0.8rem;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.html">Home 1</a></li>
-                        <li><a href="home2.html">Home 2</a></li>
+    <!-- Navigation Menu Overlay -->
+    <div class="volt-nav-overlay">
+        <div class="volt-overlay-header">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group"></i> Modwood
+            </a>
+            <div class="volt-overlay-actions">
+                <button class="volt-close-btn"><i class="fas fa-times"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+        <nav class="volt-overlay-nav">
+            <ul class="volt-nav-list">
+                <li>
+                    <a href="#" class="volt-nav-item">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="volt-nav-sublist">
+                        <li><a href="index.html" class="volt-nav-subitem">Home 1</a></li>
+                        <li><a href="home2.html" class="volt-nav-subitem">Home 2</a></li>
                     </ul>
                 </li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li style="position: relative;">
-                    <a href="#" class="nav-link active dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
-                            style="font-size: 0.8rem;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="dashboard-user.html">User Panel</a></li>
-                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                <li><a href="about.html" class="volt-nav-item">About</a></li>
+                <li><a href="services.html" class="volt-nav-item">Services</a></li>
+                <li><a href="contact.html" class="volt-nav-item">Contact</a></li>
+                <li>
+                    <a href="#" class="volt-nav-item active">Dashboards <i class="fas fa-chevron-down"></i></a>
+                    <ul class="volt-nav-sublist">
+                        <li><a href="dashboard-user.html" class="volt-nav-subitem"
+                                style="color: var(--primary); font-weight: 600;">User Panel</a></li>
+                        <li><a href="dashboard-admin.html" class="volt-nav-subitem">Admin Panel</a></li>
                     </ul>
                 </li>
             </ul>
+        </nav>
+    </div>
 
-            <div class="nav-actions">
-                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-                <a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Voltfix Header -->
-    <header class="volt-header">
-        <div class="volt-header-top">
-            <a href="index.html" class="volt-logo">
-                <i class="fas fa-couch"></i> <span>Modwood</span>
-            </a>
-            <div class="volt-header-right">
-                <div class="volt-separator"></div>
-                <button class="volt-hamburger"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-
-        <!-- Navigation Menu Overlay -->
-        <div class="volt-nav-overlay">
-            <div class="volt-overlay-header">
-                <a href="index.html" class="logo">
-                    <i class="fas fa-layer-group"></i> Modwood
-                </a>
-                <div class="volt-overlay-actions">
-                    <button class="volt-close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
-                    <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-                    <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-                </div>
-            </div>
-            <nav class="volt-overlay-nav">
-                <ul class="volt-nav-list">
-                    <li>
-                        <a href="#" class="volt-nav-item">Home <i class="fas fa-chevron-down"></i></a>
-                        <ul class="volt-nav-sublist">
-                            <li><a href="index.html" class="volt-nav-subitem">Home 1</a></li>
-                            <li><a href="home2.html" class="volt-nav-subitem">Home 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html" class="volt-nav-item">About</a></li>
-                    <li><a href="services.html" class="volt-nav-item">Services</a></li>
-                    <li><a href="contact.html" class="volt-nav-item">Contact</a></li>
-                    <li>
-                        <a href="#" class="volt-nav-item active">Dashboards <i class="fas fa-chevron-down"></i></a>
-                        <ul class="volt-nav-sublist">
-                            <li><a href="dashboard-user.html" class="volt-nav-subitem"
-                                    style="color: var(--primary); font-weight: 600;">User Panel</a></li>
-                            <li><a href="dashboard-admin.html" class="volt-nav-subitem">Admin Panel</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
+            <div style="padding-bottom: 30px; padding-left: 15px; padding-right: 20px;">
+                <a href="index.html" class="logo" style="font-size: 1.5rem;">
+                    <i class="fas fa-layer-group"></i> Modwood
+                </a>
+            </div>
+
             <div class="sidebar-menu">
                 <a href="#" class="sidebar-link active" onclick="showSection('overview', this)">
                     <i class="fas fa-th-large"></i> Overview
@@ -142,7 +107,16 @@
                 </a>
             </div>
 
-            <div class="sidebar-logout">
+            <div class="sidebar-footer"
+                style="margin-top: auto; padding-top: 30px; border-top: 1px solid var(--border); padding-right: 20px;">
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button class="toggle-circle rtl-toggle" title="Toggle RTL" style="width: 40px; height: 40px;">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <button class="toggle-circle theme-toggle" title="Toggle Mode" style="width: 40px; height: 40px;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
                 <a href="index.html" class="sidebar-link" style="color: var(--danger);">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
@@ -152,16 +126,19 @@
         <!-- Main Content -->
         <main class="main-content">
 
-            <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
-                <div>
+            <header class="dashboard-header">
+                <div class="header-title">
                     <h1 style="font-size: 2rem;"><span id="section-title-prefix">Welcome back,</span> <span
                             class="text-primary" id="section-title-main">Sarah!</span></h1>
                     <p id="section-title-desc" style="color: var(--text-muted);">Here's what's happening with your
                         orders today.</p>
                 </div>
-                <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
-                    <img src="Assets/avatar.jpg" alt="Profile"
-                        style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                <div class="header-profile">
+                    <div class="profile-info hide-mobile">
+                        <h4>Sarah Jenkins</h4>
+                        <p>Bronze Member</p>
+                    </div>
+                    <img src="Assets/avatar.jpg" alt="Profile" class="profile-avatar">
                 </div>
             </header>
 
@@ -241,37 +218,39 @@
                         <h3>Recent Orders</h3>
                         <a href="#" class="text-primary" style="font-size: 0.9rem;">View All</a>
                     </div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Product</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#LX-5502</td>
-                                <td>Emerald Velvet Sofa</td>
-                                <td>Jan 10, 2026</td>
-                                <td><span
-                                        style="padding: 5px 12px; background: rgba(39, 174, 96, 0.1); color: var(--success); border-radius: 20px; font-size: 0.8rem;">Deliver</span>
-                                </td>
-                                <td>$1,299.00</td>
-                            </tr>
-                            <tr>
-                                <td>#LX-5491</td>
-                                <td>Oak Weaver Chair</td>
-                                <td>Jan 05, 2026</td>
-                                <td><span
-                                        style="padding: 5px 12px; background: rgba(52, 152, 219, 0.1); color: var(--info); border-radius: 20px; font-size: 0.8rem;">Shipped</span>
-                                </td>
-                                <td>$450.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Product</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#LX-5502</td>
+                                    <td>Emerald Velvet Sofa</td>
+                                    <td>Jan 10, 2026</td>
+                                    <td><span
+                                            style="padding: 5px 12px; background: rgba(39, 174, 96, 0.1); color: var(--success); border-radius: 20px; font-size: 0.8rem;">Deliver</span>
+                                    </td>
+                                    <td>$1,299.00</td>
+                                </tr>
+                                <tr>
+                                    <td>#LX-5491</td>
+                                    <td>Oak Weaver Chair</td>
+                                    <td>Jan 05, 2026</td>
+                                    <td><span
+                                            style="padding: 5px 12px; background: rgba(52, 152, 219, 0.1); color: var(--info); border-radius: 20px; font-size: 0.8rem;">Shipped</span>
+                                    </td>
+                                    <td>$450.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="stat-card" style="margin-top: 30px;">
@@ -713,76 +692,7 @@
             </div>
 
 
-            <!-- Footer Moved Inside Main Content -->
-            <footer class="footer" style="margin-top: 60px; border-radius: 30px; padding: 60px 40px 30px;">
-                <div class="footer-grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 40px; margin-bottom: 40px; gap: 40px;">
-                    <div class="footer-col">
-                        <a href="index.html" class="logo"
-                            style="margin-bottom: 20px; color: white; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-layer-group"></i> Modwood
-                        </a>
-                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.9rem; line-height: 1.8;">
-                            An award-winning architectural interior design firm based in New York, London, and Tokyo.
-                        </p>
-                        <div style="display: flex; gap: 15px;">
-                            <a href="#" class="toggle-btn"
-                                style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: white;"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="#" class="toggle-btn"
-                                style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: white;"><i
-                                    class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
 
-                    <div>
-                        <h4 class="footer-title"
-                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
-                            Company</h4>
-                        <ul class="footer-links" style="font-size: 0.85rem; list-style: none; padding: 0;">
-                            <li style="margin-bottom: 15px;"><a href="about.html"
-                                    style="color: var(--text-muted); transition: var(--transition);">About Us</a></li>
-                            <li style="margin-bottom: 15px;"><a href="#"
-                                    style="color: var(--text-muted); transition: var(--transition);">Careers</a></li>
-                            <li style="margin-bottom: 15px;"><a href="contact.html"
-                                    style="color: var(--text-muted); transition: var(--transition);">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="footer-title"
-                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
-                            Services</h4>
-                        <ul class="footer-links" style="font-size: 0.85rem; list-style: none; padding: 0;">
-                            <li style="margin-bottom: 15px;"><a href="services.html"
-                                    style="color: var(--text-muted); transition: var(--transition);">Interior Design</a>
-                            </li>
-                            <li style="margin-bottom: 15px;"><a href="#"
-                                    style="color: var(--text-muted); transition: var(--transition);">Architecture</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="footer-title"
-                            style="font-size: 0.9rem; margin-bottom: 20px; color: white; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
-                            Newsletter</h4>
-                        <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.85rem;">Subscribe for
-                            design inspiration.</p>
-                        <div style="display: flex; gap: 8px;">
-                            <input type="email" placeholder="Email" class="input"
-                                style="flex: 1; padding: 8px 12px; font-size: 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: var(--radius-sm); outline: none;">
-                            <button class="btn btn-primary" style="padding: 8px 12px;"><i
-                                    class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom"
-                    style="display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.8rem;">
-                    <p>&copy; Received by pathmakers 2026</p>
-                </div>
-            </footer>
         </main>
     </div>
 
@@ -872,9 +782,7 @@
             }
         });
 
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('active');
-        }
+        // Sidebar toggle already handled in main.js
 
         // Chart.js Premium Theme Config
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';

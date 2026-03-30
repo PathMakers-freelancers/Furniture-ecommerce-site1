@@ -5,26 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modwood | Minimalist Collection</title>
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Theme adaptation for Home 2: Nordic Precision */
-        :root {
-            --primary: #c5a059;
-            /* Syncing with global luxury gold */
-            --primary-dark: #a68446;
-            --accent: #ffca3a;
-        }
-
         /* Hero 2 background should respect theme */
         .hero-2 {
             min-height: 90vh;
-            background: var(--bg-main);
+            background: var(--bg-alt);
             display: flex;
             align-items: center;
-            padding-top: 120px;
-            /* Space for navbar */
+            padding: calc(var(--header-height) + 40px) 0;
             border-bottom: 1px solid var(--border);
+        }
+
+        .hero-container-responsive {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .hero-container-responsive {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-content {
+                order: 2;
+            }
+            .hero-image-wrap {
+                order: 1;
+            }
         }
     </style>
 </head>
@@ -42,7 +55,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fas fa-couch"></i> Modwood
+                <i class="fas fa-layer-group"></i> Modwood
             </a>
             <ul class="nav-links">
                 <li style="position: relative;">
@@ -134,18 +147,18 @@
                 </div>
                 <!-- Technical Detail Card (Fills space on right) -->
                 <div class="reveal"
-                    style="background: var(--bg-alt); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center;">
+                    style="background: var(--bg-main); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center;">
                     <span
-                        style="font-size: 0.8rem; letter-spacing: 3px; color: var(--primary); font-weight: 700; margin-bottom: 20px; display: block;">TECHNICAL
+                        style="font-size: 0.8rem; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block;">TECHNICAL
                         BLUEPRINT</span>
                     <div style="margin-bottom: 25px;">
                         <div
-                            style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
                             <span style="opacity: 0.6; font-size: 0.9rem;">Base Material</span>
                             <span style="font-weight: 600;">Reinforced Carbon Steel</span>
                         </div>
                         <div
-                            style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
                             <span style="opacity: 0.6; font-size: 0.9rem;">Surface Origin</span>
                             <span style="font-weight: 600;">Carrara, Tuscany</span>
                         </div>
@@ -156,13 +169,13 @@
                     </div>
                     <div
                         style="padding: 20px; background: rgba(197, 160, 89, 0.1); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-main);">
-                        <i class="fas fa-award" style="color: var(--primary); margin-right: 10px;"></i>
+                        <i class="fas fa-award" style="color: var(--accent); margin-right: 10px;"></i>
                         Winner: 2025 Architecture & Design Award for Material Innovation.
                     </div>
                 </div>
                 <!-- Heritage Extraction (Fills the 4th slot/empty space) -->
                 <div class="reveal"
-                    style="position: relative; border-radius: var(--radius); overflow: hidden; min-height: 400px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column;">
+                    style="position: relative; border-radius: var(--radius); overflow: hidden; min-height: 320px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column;">
                     <img src="Assets/hero1.jpg"
                         style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); z-index: 1;">
                     <div
@@ -279,18 +292,9 @@
                     </div>
                 </div>
 
-                <div class="masonry-item-tall reveal"
-                    style="position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; border-radius: var(--radius);">
-                    <img src="Assets/about.jpg" alt="Dining"
-                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                    <div
-                        style="position: relative; z-index: 2; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 30px; width: 100%;">
-                        <span style="font-size: 0.7rem; color: var(--accent); letter-spacing: 2px;">DINING</span>
-                        <h3 style="color: white; font-size: 1.5rem; margin-top: 5px;">The Social Nexus</h3>
-                    </div>
-                </div>
+                <!-- Move Wide item up to fill the row next to Tall -->
                 <div class="masonry-item-wide reveal"
-                    style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; border-radius: var(--radius); min-height: 350px;">
+                    style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; border-radius: var(--radius); min-height: 240px;">
                     <img src="Assets/product2.jpg" alt="Living"
                         style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); z-index: 1;">
                     <div style="position: relative; z-index: 2; text-align: center; padding: 40px;">
@@ -305,43 +309,36 @@
                     </div>
                 </div>
 
-                <!-- Item 4 (Medium with background) -->
+                <!-- Box items to fill the second row next to Tall -->
                 <div class="reveal masonry-item-box"
                     style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Assets/product2_new.png') center/cover; border-radius: var(--radius); padding: 30px; color: white; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden;">
                     <div
                         style="position: relative; z-index: 2; display: flex; width: 100%; align-items: center; justify-content: space-between;">
-                        <h3 style="color: white; margin: 0;">View Full <br>Catalogue</h3>
-                        <div
-                            style="width: 50px; height: 50px; border: 1px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
+                        <h3 style="color: white; margin: 0;">Next<br>Generation</h3>
                     </div>
                 </div>
 
-                <!-- Item 5 (Bespoke Adaptation - Fills grid gap) -->
                 <div class="reveal masonry-item-box"
                     style="background: var(--bg-dark); color: white; border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center;">
                     <i class="fas fa-tools" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
                     <h4 style="color: white; margin-bottom: 10px;">Bespoke <br>Adaptation</h4>
-                    <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.6;">Our master artisans can adapt the
-                        dimensions of any signature piece to perfectly harmonize with your unique architectural
-                        floorplan.</p>
-                    <a href="contact.html"
-                        style="color: var(--accent); font-weight: 600; margin-top: 20px; font-size: 0.9rem;">Commission
-                        Now &rarr;</a>
+                    <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.6;">Adapt dimensions to perfectly
+                        harmonize with your unique architectural floorplan.</p>
                 </div>
 
-                <!-- Item 6 (Map/Global Concierge - Fills space) -->
-                <div class="reveal masonry-item-box"
-                    style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-                    <i class="fas fa-satellite"
-                        style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
-                    <h4 style="margin-bottom: 10px;">Global <br>Concierge</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">White-glove delivery and in-home assembly
-                        across 45 countries, handled by our certified masters.</p>
+                <!-- Item 2 (Second Tall) -->
+                <div class="masonry-item-tall reveal"
+                    style="position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; border-radius: var(--radius);">
+                    <img src="Assets/about.jpg" alt="Dining"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <div
+                        style="position: relative; z-index: 2; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 30px; width: 100%;">
+                        <span style="font-size: 0.7rem; color: var(--accent); letter-spacing: 2px;">DINING</span>
+                        <h3 style="color: white; font-size: 1.5rem; margin-top: 5px;">The Social Nexus</h3>
+                    </div>
                 </div>
 
-                <!-- Item 7 (The Signature Quote - Spans remaining width) -->
+                <!-- Second Wide Quote / Item -->
                 <div class="reveal masonry-item-wide"
                     style="background: #fdfcf9; border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; display: flex; align-items: center; gap: 40px;">
                     <div
@@ -349,8 +346,27 @@
                         &ldquo;</div>
                     <p
                         style="font-size: 1.3rem; font-style: italic; color: var(--primary); margin: 0; line-height: 1.6; font-weight: 300;">
-                        "Architecture is the learned game, correct and magnificent, of forms assembled in light." — Le
-                        Corbusier</p>
+                        "Design is not just making things look good. It is a way of life."</p>
+                </div>
+
+                <!-- Global Concierge & New Item to fill remaining gap -->
+                <div class="reveal masonry-item-box"
+                    style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    <i class="fas fa-satellite"
+                        style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="margin-bottom: 10px;">Global <br>Concierge</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">White-glove delivery and in-home assembly
+                        across 45 countries.</p>
+                </div>
+
+                <!-- NEW ITEM to perfectly fill the grid -->
+                <div class="reveal masonry-item-box"
+                    style="background: var(--primary); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center; color: white;">
+                    <i class="fas fa-puzzle-piece"
+                        style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4 style="color: white; margin-bottom: 10px;">Modular <br>Masterpiece</h4>
+                    <p style="font-size: 0.8rem; opacity: 0.8;">Expandable systems that grow with your legacy and space.
+                    </p>
                 </div>
 
             </div>
@@ -449,7 +465,7 @@
                     </div>
                 </div>
                 <div class="reveal">
-                    <div style="position: relative; border-radius: 40px; overflow: hidden; height: 500px;">
+                    <div style="position: relative; border-radius: 40px; overflow: hidden; height: 400px;">
                         <img src="Assets/hero1.jpg" alt="Sustainability"
                             style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
                         <div
@@ -477,10 +493,11 @@
                         Receive early access to seasonal drops, private studio tours, and curated design inspiration
                         from our principal architects.
                     </p>
-                    <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 15px;">
-                        <input type="email" placeholder="Email Address"
-                            style="flex: 1; padding: 18px 25px; border-radius: 50px; border: 1px solid var(--border); outline: none; font-family: inherit;">
-                        <button class="btn btn-primary" style="border-radius: 50px;">Subscribe</button>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address" class="input"
+                            style="flex: 1; padding: 18px 25px; border-radius: 50px; outline: none; font-family: inherit;">
+                        <button class="btn btn-primary"
+                            style="border-radius: 50px; white-space: nowrap;">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -493,7 +510,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="logo" style="margin-bottom: 20px;">
-                        <i class="fas fa-couch"></i> Modwood
+                        <i class="fas fa-layer-group"></i> Modwood
                     </a>
                     <p style="color: var(--text-muted); margin-bottom: 25px;">Premium furniture crafted with passion. We
                         bring together modern design and traditional craftsmanship to create timeless pieces for your

@@ -148,13 +148,14 @@ window.addEventListener('load', () => {
 
 // Dashboard Sidebar & Menu Toggles
 const dashboardToggle = document.querySelector('.volt-hamburger');
+const closeBtn = document.querySelector('.volt-close-btn');
 const dashboardNavOverlay = document.querySelector('.volt-nav-overlay');
 
-// Map toggleSidebar to global scope for any inline onclicks that remain
+// Map toggleSidebar to global scope
 window.toggleSidebar = function () {
     if (dashboardNavOverlay) {
         const isActive = dashboardNavOverlay.classList.toggle('active');
-        const icon = dashboardToggle?.querySelector('i');
+        const icon = document.querySelector('.volt-hamburger i');
         if (icon) {
             icon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
         }
@@ -168,6 +169,13 @@ if (dashboardToggle) {
     });
 }
 
+if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.toggleSidebar();
+    });
+}
+
 // Close dashboard menu on click outside
 document.addEventListener('click', (e) => {
     if (dashboardNavOverlay && dashboardNavOverlay.classList.contains('active')) {
@@ -175,4 +183,24 @@ document.addEventListener('click', (e) => {
             window.toggleSidebar();
         }
     }
+});
+// Dashboard Navigation Dropdowns
+document.querySelectorAll('.volt-nav-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        const hasSublist = item.nextElementSibling && item.nextElementSibling.classList.contains('volt-nav-sublist');
+        if (hasSublist) {
+            e.preventDefault();
+            
+            // Toggle current
+            const isOpen = item.classList.contains('open');
+            
+            // Close other items at the same level (optional, but cleaner)
+            const siblingItems = item.parentElement.parentElement.querySelectorAll('.volt-nav-item');
+            siblingItems.forEach(sib => sib.classList.remove('open'));
+            
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
+    });
 });

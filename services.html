@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Modwood</title>
+    <title>Our Services | Modwood</title>
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -62,7 +63,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="section" style="padding-top: 150px; background: var(--bg-alt);">
+    <header class="section" style="padding-top: calc(var(--header-height) + 60px); background: var(--bg-alt);">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-eyebrow">Our Expertise</span>
@@ -73,81 +74,85 @@
         </div>
     </header>
 
-    <!-- Service List -->
+    <!-- Service List - Reformatted to Column Layout -->
     <section class="section">
-        <div class="container">
+        <div class="container" style="display: flex; flex-direction: column; gap: 80px;">
             <!-- Service 1 -->
-            <div class="curated-grid" style="align-items: center; margin-bottom: 100px;">
-                <div class="reveal">
+            <div class="reveal" style="display: flex; flex-direction: column; align-items: flex-start; gap: 30px;">
+                <div style="width: 100%;">
                     <img src="Assets/hero2.jpg" alt="Architecture"
                         style="border-radius: var(--radius); height: 500px; width: 100%; object-fit: cover;">
                 </div>
-                <div class="reveal" style="padding-left: 40px;">
+                <div style="width: 100%;">
                     <span class="section-eyebrow">01</span>
                     <h3 class="section-title text-left" style="font-size: 2.5rem; text-align: left;">Architecture</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                    <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 800px;">
                         From initial massing studies to construction administration, our architectural practice focuses
                         on creating structures that are in dialogue with their environment. We specialize in
                         contemporary residential and boutique commercial projects.
                     </p>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                    <ul style="list-style: none; margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Feasibility Studies</li>
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Concept Design</li>
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Permit Acquisition</li>
                     </ul>
                 </div>
             </div>
 
+            <hr style="border: 0; border-top: 1px solid var(--border);">
+
             <!-- Service 2 -->
-            <div class="curated-grid" style="align-items: center; direction: rtl; margin-bottom: 100px;">
-                <div class="reveal">
+            <div class="reveal" style="display: flex; flex-direction: column; align-items: flex-start; gap: 30px;">
+                <div style="width: 100%;">
                     <img src="Assets/hero1.jpg" alt="Interiors"
                         style="border-radius: var(--radius); height: 500px; width: 100%; object-fit: cover;">
                 </div>
-                <div class="reveal" style="padding-right: 40px; text-align: left; direction: ltr;">
+                <div style="width: 100%;">
                     <span class="section-eyebrow">02</span>
                     <h3 class="section-title text-left" style="font-size: 2.5rem; text-align: left;">Interior Design
                     </h3>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                    <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 800px;">
                         We curate every surface, fixture, and furnishing. Our interiors are characterized by a sense of
                         calm, material richness, and spatial harmony. We handle procurement, warehousing, and
                         installation.
                     </p>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                    <ul style="list-style: none; margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Space Planning</li>
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> FF&E Specification</li>
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Art Curation</li>
                     </ul>
                 </div>
             </div>
 
+            <hr style="border: 0; border-top: 1px solid var(--border);">
+
             <!-- Service 3 -->
-            <div class="curated-grid" style="align-items: center;">
-                <div class="reveal">
+            <div class="reveal" style="display: flex; flex-direction: column; align-items: flex-start; gap: 30px;">
+                <div style="width: 100%;">
                     <img src="Assets/product4.jpg" alt="Bespoke"
                         style="border-radius: var(--radius); height: 500px; width: 100%; object-fit: cover;">
                 </div>
-                <div class="reveal" style="padding-left: 40px;">
+                <div style="width: 100%;">
                     <span class="section-eyebrow">03</span>
                     <h3 class="section-title text-left" style="font-size: 2.5rem; text-align: left;">Furniture Design
                     </h3>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                    <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 800px;">
                         When the market doesnt offer the perfect piece, we create it. Our bespoke furniture service
                         allows for complete customization of dimensions, materials, and finishes to perfectly suit your
                         project.
                     </p>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                    <ul style="list-style: none; margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Custom Joinery</li>
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Prototyping</li>
-                        <li style="margin-bottom: 10px; color: var(--text-main);"><i class="fas fa-arrow-right"
+                        <li style="color: var(--text-main);"><i class="fas fa-arrow-right"
                                 style="color: var(--accent); margin-right: 10px;"></i> Limited Edition Series</li>
                     </ul>
                 </div>
@@ -332,37 +337,16 @@
         </div>
     </section>
 
-    <!-- Pricing / Tiers -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Investment Structure</h2>
-                <p class="section-desc">Transparent pricing models tailored to project scale.</p>
-            </div>
-
-            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="journal-card reveal" style="padding: 40px; text-align: left;">
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Consultation</h4>
-                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">Flat Fee</p>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">Ideal for single-room refreshes direction
-                        setting.</p>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Book Assessment</a>
-                </div>
-                <div class="journal-card reveal"
-                    style="padding: 40px; text-align: left; border: 1px solid var(--accent);">
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Full Service</h4>
-                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">% of Construction</p>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">Comprehensive architectural and interior
-                        design delivery.</p>
-                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Inquire Now</a>
-                </div>
-                <div class="journal-card reveal" style="padding: 40px; text-align: left;">
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Retainer</h4>
-                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">Monthly</p>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">Ongoing design support for developers and
-                        estates.</p>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Contact Us</a>
-                </div>
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--bg-alt); text-align: center; padding: 120px 0; border-top: 1px solid var(--border);">
+        <div class="container reveal">
+            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Begin Your Journey</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem;">
+                Every masterpiece begins with a conversation. Let's discuss your vision today.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                <a href="about.html" class="btn btn-outline">About Our Studio</a>
             </div>
         </div>
     </section>

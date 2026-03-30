@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Studio | Modwood</title>
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -63,7 +64,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="section" style="padding-top: 150px; background: var(--bg-alt);">
+    <header class="section" style="padding-top: calc(var(--header-height) + 60px); background: var(--bg-alt);">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-eyebrow">The Studio</span>
@@ -227,54 +228,54 @@
     </section>
 
     <!-- Principles -->
-    <section class="section" style="background: var(--primary); color: white;">
+    <section class="stats-section">
         <div class="container">
             <div class="section-header reveal">
                 <h2 class="section-title" style="color: white;">Our Core Values</h2>
             </div>
             <div class="stats-grid">
                 <div class="stat-item reveal"
-                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px; background: rgba(255,255,255,0.05); border-radius: var(--radius);">
                     <img src="Assets/product4.jpg"
-                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1); z-index: 1;">
                     <div style="position: relative; z-index: 2;">
                         <i class="fas fa-gem" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Integrity</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">We are transparent in our process and
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Integrity</h4>
+                        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">We are transparent in our process and
                             honest in our materials.</p>
                     </div>
                 </div>
                 <div class="stat-item reveal"
-                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px; background: rgba(255,255,255,0.05); border-radius: var(--radius);">
                     <img src="Assets/product2.jpg"
-                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1); z-index: 1;">
                     <div style="position: relative; z-index: 2;">
                         <i class="fas fa-leaf" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Sustainability</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Design should not come at the cost of
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Sustainability</h4>
+                        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Design should not come at the cost of
                             the planet.</p>
                     </div>
                 </div>
                 <div class="stat-item reveal"
-                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px; background: rgba(255,255,255,0.05); border-radius: var(--radius);">
                     <img src="Assets/product1.jpg"
-                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1); z-index: 1;">
                     <div style="position: relative; z-index: 2;">
                         <i class="fas fa-infinity"
                             style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Longevity</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">We build for the next generation, not
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Longevity</h4>
+                        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">We build for the next generation, not
                             just the next season.</p>
                     </div>
                 </div>
                 <div class="stat-item reveal"
-                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    style="position: relative; overflow: hidden; border: none; min-height: 250px; display: flex; flex-direction: column; justify-content: center; padding: 40px; background: rgba(255,255,255,0.05); border-radius: var(--radius);">
                     <img src="Assets/delivery.jpg"
-                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1);">
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: grayscale(1); z-index: 1;">
                     <div style="position: relative; z-index: 2;">
                         <i class="fas fa-users" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Collaboration</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Great spaces are born from great
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Collaboration</h4>
+                        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Great spaces are born from great
                             partnerships.</p>
                     </div>
                 </div>
